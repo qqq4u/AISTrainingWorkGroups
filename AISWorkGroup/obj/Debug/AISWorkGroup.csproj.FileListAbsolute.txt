@@ -1,0 +1,12 @@
+D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.csprojAssemblyReference.cache
+D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.Properties.Resources.resources
+D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.csproj.GenerateResource.cache
+D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.csproj.CoreCompileInputs.cache
+D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\bin\Debug\AISWorkGroup.exe.config
+D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\bin\Debug\AISWorkGroup.exe
+D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\bin\Debug\AISWorkGroup.pdb
+D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.General_Forms.FormAuthorization.resources
+D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.exe
+D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.pdb
+D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.Employee_s_Forms.FormEmployeeMain.resources
+D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.Manager_s_Forms.FormManagerMain.resources
