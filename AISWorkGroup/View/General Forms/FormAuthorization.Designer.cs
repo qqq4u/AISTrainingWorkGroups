@@ -58,6 +58,9 @@
             // 
             // comboBoxRole
             // 
+            this.comboBoxRole.AutoCompleteCustomSource.AddRange(new string[] {
+            "Сотрудник ",
+            "Руководитель"});
             this.comboBoxRole.FormattingEnabled = true;
             this.comboBoxRole.Location = new System.Drawing.Point(87, 180);
             this.comboBoxRole.Name = "comboBoxRole";
