@@ -46,6 +46,7 @@
             this.buttonSignUp.TabIndex = 15;
             this.buttonSignUp.Text = "Зарегестрироваться";
             this.buttonSignUp.UseVisualStyleBackColor = true;
+            this.buttonSignUp.Click += new System.EventHandler(this.buttonSignUp_Click);
             // 
             // buttonLogIn
             // 
@@ -55,6 +56,7 @@
             this.buttonLogIn.TabIndex = 14;
             this.buttonLogIn.Text = "Войти";
             this.buttonLogIn.UseVisualStyleBackColor = true;
+            this.buttonLogIn.Click += new System.EventHandler(this.buttonLogIn_Click);
             // 
             // comboBoxRole
             // 
@@ -62,6 +64,9 @@
             "Сотрудник ",
             "Руководитель"});
             this.comboBoxRole.FormattingEnabled = true;
+            this.comboBoxRole.Items.AddRange(new object[] {
+            "Сотрудник ",
+            "Руководитель"});
             this.comboBoxRole.Location = new System.Drawing.Point(87, 180);
             this.comboBoxRole.Name = "comboBoxRole";
             this.comboBoxRole.Size = new System.Drawing.Size(121, 21);
@@ -123,6 +128,7 @@
             this.Controls.Add(this.textBoxLogin);
             this.Name = "FormAuthorization";
             this.Text = "Авторизация";
+            this.Load += new System.EventHandler(this.FormAuthorization_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

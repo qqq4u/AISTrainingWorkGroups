@@ -32,7 +32,7 @@
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerBirthDate = new System.Windows.Forms.DateTimePicker();
             this.maskedTextBoxPhoneNumber = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
@@ -81,12 +81,12 @@
             this.label8.TabIndex = 30;
             this.label8.Text = "Дата рождения";
             // 
-            // dateTimePicker1
+            // dateTimePickerBirthDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(375, 223);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 29;
+            this.dateTimePickerBirthDate.Location = new System.Drawing.Point(375, 223);
+            this.dateTimePickerBirthDate.Name = "dateTimePickerBirthDate";
+            this.dateTimePickerBirthDate.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerBirthDate.TabIndex = 29;
             // 
             // maskedTextBoxPhoneNumber
             // 
@@ -193,7 +193,7 @@
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePickerBirthDate);
             this.Controls.Add(this.maskedTextBoxPhoneNumber);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxPassword);
@@ -219,7 +219,7 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerBirthDate;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPhoneNumber;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxPassword;
