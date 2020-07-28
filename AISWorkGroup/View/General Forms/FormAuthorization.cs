@@ -30,6 +30,9 @@ namespace AISWorkGroup.View.General_Forms
 
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
+            GlobalVariables.authorizedUserId = -1;
+
+
             if (textBoxLogin.Text == string.Empty || textBoxPassword.Text == string.Empty || comboBoxRole.Text == string.Empty)
             {
                 MessageBox.Show("Не все поля заполненны!", "Ошибка входа", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -42,6 +45,8 @@ namespace AISWorkGroup.View.General_Forms
                 {
                     if (comboBoxRole.SelectedIndex == 1)
                     {
+                        reader.Read();
+                        GlobalVariables.authorizedUserId = reader.GetInt32("id");
                         reader.Close();
                         Form managerForm = new FormManagerMain();
                         this.Visible = false;
@@ -54,6 +59,8 @@ namespace AISWorkGroup.View.General_Forms
                     }
                     else
                     {
+                        reader.Read();
+                        GlobalVariables.authorizedUserId = reader.GetInt32("id");
                         reader.Close();
                             Form employeeForm = new FormEmployeeMain();
                             this.Visible = false;
@@ -74,7 +81,6 @@ namespace AISWorkGroup.View.General_Forms
                 }
             }
 
-                    //INSERT `workgroups`.`users`(id, login, password, full_name, role, position, email, date_of_birth) VALUES (0,'123','123','Поляков Данила Денисович', 1, 'Програмист', 'qwe@qwe.ru', '2003-10-16')
 
         }
 

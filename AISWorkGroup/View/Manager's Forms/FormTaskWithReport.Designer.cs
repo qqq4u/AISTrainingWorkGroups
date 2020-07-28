@@ -35,7 +35,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.buttonExit = new System.Windows.Forms.Button();
-            this.buttonChangeReport = new System.Windows.Forms.Button();
+            this.buttonDiscardReport = new System.Windows.Forms.Button();
             this.buttonAddReport = new System.Windows.Forms.Button();
             this.comboBoxStatus = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -111,14 +111,14 @@
             this.buttonExit.Text = "Выйти";
             this.buttonExit.UseVisualStyleBackColor = true;
             // 
-            // buttonChangeReport
+            // buttonDiscardReport
             // 
-            this.buttonChangeReport.Location = new System.Drawing.Point(291, 359);
-            this.buttonChangeReport.Name = "buttonChangeReport";
-            this.buttonChangeReport.Size = new System.Drawing.Size(341, 21);
-            this.buttonChangeReport.TabIndex = 32;
-            this.buttonChangeReport.Text = "Забраковать работу";
-            this.buttonChangeReport.UseVisualStyleBackColor = true;
+            this.buttonDiscardReport.Location = new System.Drawing.Point(291, 359);
+            this.buttonDiscardReport.Name = "buttonDiscardReport";
+            this.buttonDiscardReport.Size = new System.Drawing.Size(341, 21);
+            this.buttonDiscardReport.TabIndex = 32;
+            this.buttonDiscardReport.Text = "Забраковать работу";
+            this.buttonDiscardReport.UseVisualStyleBackColor = true;
             // 
             // buttonAddReport
             // 
@@ -223,7 +223,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonExit);
-            this.Controls.Add(this.buttonChangeReport);
+            this.Controls.Add(this.buttonDiscardReport);
             this.Controls.Add(this.buttonAddReport);
             this.Controls.Add(this.comboBoxStatus);
             this.Controls.Add(this.label4);
@@ -253,7 +253,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button buttonExit;
-        private System.Windows.Forms.Button buttonChangeReport;
+        private System.Windows.Forms.Button buttonDiscardReport;
         private System.Windows.Forms.Button buttonAddReport;
         private System.Windows.Forms.ComboBox comboBoxStatus;
         private System.Windows.Forms.Label label4;

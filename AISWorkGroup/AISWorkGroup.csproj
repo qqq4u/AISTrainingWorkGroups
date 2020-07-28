@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\DBConnector.cs" />
+    <Compile Include="Model\GlobalVariables.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Employee%27s Forms\FormEditingReport.cs">

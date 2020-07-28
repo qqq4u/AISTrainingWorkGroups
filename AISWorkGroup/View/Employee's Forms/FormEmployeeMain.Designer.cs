@@ -30,31 +30,31 @@
         {
             this.tabControlEmployeeMain = new System.Windows.Forms.TabControl();
             this.tabPageWorkingGroups = new System.Windows.Forms.TabPage();
-            this.tabPagePersonalInformation = new System.Windows.Forms.TabPage();
             this.buttonGoToSelectedWorkGroup = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewEmployeesGroups = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxFullName = new System.Windows.Forms.TextBox();
-            this.textBoxPosition = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBoxRole = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxLogin = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.tabPagePersonalInformation = new System.Windows.Forms.TabPage();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
+            this.textBoxPhoneNumber = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dateTimePickerDateOfBirth = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.maskedTextBoxPhoneNumber = new System.Windows.Forms.MaskedTextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.textBoxLogin = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxPosition = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxFullName = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.comboBoxRole = new System.Windows.Forms.ComboBox();
+            this.buttonRenewPersonalInformation = new System.Windows.Forms.Button();
             this.tabControlEmployeeMain.SuspendLayout();
             this.tabPageWorkingGroups.SuspendLayout();
-            this.tabPagePersonalInformation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployeesGroups)).BeginInit();
+            this.tabPagePersonalInformation.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlEmployeeMain
@@ -82,33 +82,6 @@
             this.tabPageWorkingGroups.Text = "Рабочие группы";
             this.tabPageWorkingGroups.UseVisualStyleBackColor = true;
             // 
-            // tabPagePersonalInformation
-            // 
-            this.tabPagePersonalInformation.Controls.Add(this.button1);
-            this.tabPagePersonalInformation.Controls.Add(this.maskedTextBox1);
-            this.tabPagePersonalInformation.Controls.Add(this.label9);
-            this.tabPagePersonalInformation.Controls.Add(this.label8);
-            this.tabPagePersonalInformation.Controls.Add(this.dateTimePicker1);
-            this.tabPagePersonalInformation.Controls.Add(this.maskedTextBoxPhoneNumber);
-            this.tabPagePersonalInformation.Controls.Add(this.label7);
-            this.tabPagePersonalInformation.Controls.Add(this.textBoxPassword);
-            this.tabPagePersonalInformation.Controls.Add(this.label6);
-            this.tabPagePersonalInformation.Controls.Add(this.textBoxLogin);
-            this.tabPagePersonalInformation.Controls.Add(this.label5);
-            this.tabPagePersonalInformation.Controls.Add(this.textBoxRole);
-            this.tabPagePersonalInformation.Controls.Add(this.label4);
-            this.tabPagePersonalInformation.Controls.Add(this.textBoxPosition);
-            this.tabPagePersonalInformation.Controls.Add(this.label3);
-            this.tabPagePersonalInformation.Controls.Add(this.textBoxFullName);
-            this.tabPagePersonalInformation.Controls.Add(this.label2);
-            this.tabPagePersonalInformation.Location = new System.Drawing.Point(4, 22);
-            this.tabPagePersonalInformation.Name = "tabPagePersonalInformation";
-            this.tabPagePersonalInformation.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePersonalInformation.Size = new System.Drawing.Size(792, 424);
-            this.tabPagePersonalInformation.TabIndex = 1;
-            this.tabPagePersonalInformation.Text = "Личная информация";
-            this.tabPagePersonalInformation.UseVisualStyleBackColor = true;
-            // 
             // buttonGoToSelectedWorkGroup
             // 
             this.buttonGoToSelectedWorkGroup.Location = new System.Drawing.Point(56, 392);
@@ -135,142 +108,178 @@
             this.dataGridViewEmployeesGroups.Size = new System.Drawing.Size(741, 355);
             this.dataGridViewEmployeesGroups.TabIndex = 4;
             // 
-            // label2
+            // tabPagePersonalInformation
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 41);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "ФИО";
+            this.tabPagePersonalInformation.Controls.Add(this.buttonRenewPersonalInformation);
+            this.tabPagePersonalInformation.Controls.Add(this.comboBoxRole);
+            this.tabPagePersonalInformation.Controls.Add(this.textBoxEmail);
+            this.tabPagePersonalInformation.Controls.Add(this.textBoxPhoneNumber);
+            this.tabPagePersonalInformation.Controls.Add(this.label9);
+            this.tabPagePersonalInformation.Controls.Add(this.label8);
+            this.tabPagePersonalInformation.Controls.Add(this.dateTimePickerDateOfBirth);
+            this.tabPagePersonalInformation.Controls.Add(this.label7);
+            this.tabPagePersonalInformation.Controls.Add(this.textBoxPassword);
+            this.tabPagePersonalInformation.Controls.Add(this.label6);
+            this.tabPagePersonalInformation.Controls.Add(this.textBoxLogin);
+            this.tabPagePersonalInformation.Controls.Add(this.label5);
+            this.tabPagePersonalInformation.Controls.Add(this.label4);
+            this.tabPagePersonalInformation.Controls.Add(this.textBoxPosition);
+            this.tabPagePersonalInformation.Controls.Add(this.label3);
+            this.tabPagePersonalInformation.Controls.Add(this.textBoxFullName);
+            this.tabPagePersonalInformation.Controls.Add(this.label10);
+            this.tabPagePersonalInformation.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePersonalInformation.Name = "tabPagePersonalInformation";
+            this.tabPagePersonalInformation.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagePersonalInformation.Size = new System.Drawing.Size(792, 424);
+            this.tabPagePersonalInformation.TabIndex = 1;
+            this.tabPagePersonalInformation.Text = "Личная информация";
+            this.tabPagePersonalInformation.UseVisualStyleBackColor = true;
             // 
-            // textBoxFullName
+            // textBoxEmail
             // 
-            this.textBoxFullName.Location = new System.Drawing.Point(41, 57);
-            this.textBoxFullName.Name = "textBoxFullName";
-            this.textBoxFullName.Size = new System.Drawing.Size(100, 20);
-            this.textBoxFullName.TabIndex = 1;
+            this.textBoxEmail.Location = new System.Drawing.Point(400, 303);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEmail.TabIndex = 51;
             // 
-            // textBoxPosition
+            // textBoxPhoneNumber
             // 
-            this.textBoxPosition.Location = new System.Drawing.Point(41, 114);
-            this.textBoxPosition.Name = "textBoxPosition";
-            this.textBoxPosition.Size = new System.Drawing.Size(100, 20);
-            this.textBoxPosition.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(67, 98);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Должность";
-            // 
-            // textBoxRole
-            // 
-            this.textBoxRole.Location = new System.Drawing.Point(41, 177);
-            this.textBoxRole.Name = "textBoxRole";
-            this.textBoxRole.Size = new System.Drawing.Size(100, 20);
-            this.textBoxRole.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(67, 161);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Роль";
-            // 
-            // textBoxLogin
-            // 
-            this.textBoxLogin.Location = new System.Drawing.Point(191, 57);
-            this.textBoxLogin.Name = "textBoxLogin";
-            this.textBoxLogin.Size = new System.Drawing.Size(100, 20);
-            this.textBoxLogin.TabIndex = 7;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(217, 41);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Логин";
-            // 
-            // textBoxPassword
-            // 
-            this.textBoxPassword.Location = new System.Drawing.Point(191, 114);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
-            this.textBoxPassword.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(217, 98);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Пароль";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(67, 214);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 13);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Телефон";
-            // 
-            // maskedTextBoxPhoneNumber
-            // 
-            this.maskedTextBoxPhoneNumber.Location = new System.Drawing.Point(41, 230);
-            this.maskedTextBoxPhoneNumber.Name = "maskedTextBoxPhoneNumber";
-            this.maskedTextBoxPhoneNumber.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBoxPhoneNumber.TabIndex = 11;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(191, 177);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 12;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(257, 161);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(86, 13);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Дата рождения";
+            this.textBoxPhoneNumber.Location = new System.Drawing.Point(221, 303);
+            this.textBoxPhoneNumber.Name = "textBoxPhoneNumber";
+            this.textBoxPhoneNumber.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPhoneNumber.TabIndex = 50;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(246, 214);
+            this.label9.Location = new System.Drawing.Point(426, 275);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(32, 13);
-            this.label9.TabIndex = 14;
+            this.label9.TabIndex = 49;
             this.label9.Text = "Email";
             // 
-            // maskedTextBox1
+            // label8
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(220, 230);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 15;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(437, 222);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 13);
+            this.label8.TabIndex = 48;
+            this.label8.Text = "Дата рождения";
             // 
-            // button1
+            // dateTimePickerDateOfBirth
             // 
-            this.button1.Location = new System.Drawing.Point(70, 295);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(229, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Обновить личную инфомацию";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dateTimePickerDateOfBirth.Location = new System.Drawing.Point(371, 238);
+            this.dateTimePickerDateOfBirth.Name = "dateTimePickerDateOfBirth";
+            this.dateTimePickerDateOfBirth.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerDateOfBirth.TabIndex = 47;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(247, 275);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 13);
+            this.label7.TabIndex = 46;
+            this.label7.Text = "Телефон";
+            // 
+            // textBoxPassword
+            // 
+            this.textBoxPassword.Location = new System.Drawing.Point(371, 175);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPassword.TabIndex = 45;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(397, 159);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 13);
+            this.label6.TabIndex = 44;
+            this.label6.Text = "Пароль";
+            // 
+            // textBoxLogin
+            // 
+            this.textBoxLogin.Location = new System.Drawing.Point(371, 118);
+            this.textBoxLogin.Name = "textBoxLogin";
+            this.textBoxLogin.Size = new System.Drawing.Size(100, 20);
+            this.textBoxLogin.TabIndex = 43;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(397, 102);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "Логин";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(247, 222);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(32, 13);
+            this.label4.TabIndex = 40;
+            this.label4.Text = "Роль";
+            // 
+            // textBoxPosition
+            // 
+            this.textBoxPosition.Location = new System.Drawing.Point(221, 175);
+            this.textBoxPosition.Name = "textBoxPosition";
+            this.textBoxPosition.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPosition.TabIndex = 39;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(247, 159);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 13);
+            this.label3.TabIndex = 38;
+            this.label3.Text = "Должность";
+            // 
+            // textBoxFullName
+            // 
+            this.textBoxFullName.Location = new System.Drawing.Point(221, 118);
+            this.textBoxFullName.Name = "textBoxFullName";
+            this.textBoxFullName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxFullName.TabIndex = 37;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(247, 102);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(34, 13);
+            this.label10.TabIndex = 36;
+            this.label10.Text = "ФИО";
+            // 
+            // comboBoxRole
+            // 
+            this.comboBoxRole.AutoCompleteCustomSource.AddRange(new string[] {
+            "Сотрудник",
+            "Руководитель"});
+            this.comboBoxRole.Enabled = false;
+            this.comboBoxRole.FormattingEnabled = true;
+            this.comboBoxRole.Items.AddRange(new object[] {
+            "Сотрудник ",
+            "Руководитель"});
+            this.comboBoxRole.Location = new System.Drawing.Point(211, 241);
+            this.comboBoxRole.Name = "comboBoxRole";
+            this.comboBoxRole.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxRole.TabIndex = 52;
+            // 
+            // buttonRenewPersonalInformation
+            // 
+            this.buttonRenewPersonalInformation.Location = new System.Drawing.Point(250, 354);
+            this.buttonRenewPersonalInformation.Name = "buttonRenewPersonalInformation";
+            this.buttonRenewPersonalInformation.Size = new System.Drawing.Size(229, 23);
+            this.buttonRenewPersonalInformation.TabIndex = 53;
+            this.buttonRenewPersonalInformation.Text = "Обновить личную инфомацию";
+            this.buttonRenewPersonalInformation.UseVisualStyleBackColor = true;
+            this.buttonRenewPersonalInformation.Click += new System.EventHandler(this.buttonRenewPersonalInformation_Click);
             // 
             // FormEmployeeMain
             // 
@@ -280,12 +289,13 @@
             this.Controls.Add(this.tabControlEmployeeMain);
             this.Name = "FormEmployeeMain";
             this.Text = "Форма сотрудника";
+            this.Load += new System.EventHandler(this.FormEmployeeMain_Load);
             this.tabControlEmployeeMain.ResumeLayout(false);
             this.tabPageWorkingGroups.ResumeLayout(false);
             this.tabPageWorkingGroups.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployeesGroups)).EndInit();
             this.tabPagePersonalInformation.ResumeLayout(false);
             this.tabPagePersonalInformation.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployeesGroups)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -298,22 +308,22 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridViewEmployeesGroups;
         private System.Windows.Forms.TabPage tabPagePersonalInformation;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxPhoneNumber;
+        private System.Windows.Forms.TextBox textBoxEmail;
+        private System.Windows.Forms.TextBox textBoxPhoneNumber;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDateOfBirth;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxLogin;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBoxRole;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxPosition;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxFullName;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox comboBoxRole;
+        private System.Windows.Forms.Button buttonRenewPersonalInformation;
     }
 }
