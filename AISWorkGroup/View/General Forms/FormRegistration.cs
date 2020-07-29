@@ -40,10 +40,11 @@ namespace AISWorkGroup.View.General_Forms
                 else
                 {
                     reader.Close();
-                    DBConnector.mySqlCommand.CommandText = $@"INSERT `workgroups`.`users`(login, password, full_name, role, position, email, date_of_birth, phone_number) VALUES ('{textBoxLogin.Text}','{textBoxPassword.Text}','{textBoxFullName.Text}', {comboBoxRole.SelectedIndex}, '{textBoxPosition.Text}', '{textBoxEmail.Text}', '{dateTimePickerBirthDate.Value:yyyy-MM-dd}', {textBoxPhoneNumber.Text})";
+                    DBConnector.mySqlCommand.CommandText = $@"INSERT `users`(login, password, full_name, role, position, email, date_of_birth, phone_number) VALUES ('{textBoxLogin.Text}','{textBoxPassword.Text}','{textBoxFullName.Text}', {comboBoxRole.SelectedIndex}, '{textBoxPosition.Text}', '{textBoxEmail.Text}', '{dateTimePickerBirthDate.Value:yyyy-MM-dd}', '{textBoxPhoneNumber.Text}')";
                     DBConnector.mySqlCommand.ExecuteNonQuery();
                     MessageBox.Show("Успешная регистрация нового пользователя!", "Выполнено", MessageBoxButtons.OK);
                     // сделать олчистку полей
+                    this.Close();
 
                 }
              
@@ -53,6 +54,11 @@ namespace AISWorkGroup.View.General_Forms
         private void FormRegistration_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

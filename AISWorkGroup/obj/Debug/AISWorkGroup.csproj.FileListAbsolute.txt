@@ -44,3 +44,4 @@ D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.
 D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.Manager_s_Forms.FormTaskWithReport.resources
 D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.csproj.CopyComplete
 D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.General_Forms.FormRegistration.resources
+D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.Manager_s_Forms.FormAddingNewWorkgroup.resources

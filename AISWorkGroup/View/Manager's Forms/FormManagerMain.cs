@@ -57,6 +57,20 @@ namespace AISWorkGroup.View.Manager_s_Forms
             reader.Close();
 
 
+            DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `workgroups`";
+
+            dataGridViewWorkGroupsList.Rows.Clear();
+
+            reader = DBConnector.mySqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                dataGridViewWorkGroupsList.Rows.Add(reader.GetString("name"), reader.GetString("description"));
+            }
+
+            reader.Close();
+
+
+
         }
 
         private void tabControl1_Click(object sender, EventArgs e)
@@ -88,6 +102,98 @@ namespace AISWorkGroup.View.Manager_s_Forms
                     MessageBox.Show("Обновление личной информации выполнено","Успешно!",MessageBoxButtons.OK);
                     
 
+                }
+
+            }
+        }
+
+        private void buttonAddNewWorkGroup_Click(object sender, EventArgs e)
+        {
+            Form form = new FormAddingNewWorkgroup();
+            this.Visible = false;
+            form.ShowDialog();
+            this.Visible = true;
+
+            DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `workgroups`";
+
+            dataGridViewWorkGroupsList.Rows.Clear();
+
+            var reader = DBConnector.mySqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                dataGridViewWorkGroupsList.Rows.Add(reader.GetString("name"), reader.GetString("description"));
+            }   
+
+            reader.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewEmployeesList.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Вы не выбрали ни одного сотрудника или выбрали более одного сотрудника", "Ошибка просмотра", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                GlobalVariables.position = dataGridViewEmployeesList.SelectedRows[0].Cells[0].Value.ToString();
+                GlobalVariables.fullName = dataGridViewEmployeesList.SelectedRows[0].Cells[1].Value.ToString();
+                GlobalVariables.phoneNumber = dataGridViewEmployeesList.SelectedRows[0].Cells[3].Value.ToString();
+                GlobalVariables.email = dataGridViewEmployeesList.SelectedRows[0].Cells[4].Value.ToString();
+                this.Visible = false;
+                FormSelectedEmployeeInfo form = new FormSelectedEmployeeInfo();
+                form.ShowDialog();
+                this.Visible = true;
+
+            }
+        }
+
+        private void buttonDeleteSelectedEmployee_Click(object sender, EventArgs e)
+        {
+            int user_id;
+            if (dataGridViewEmployeesList.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Вы не выбрали ни одного сотрудника или выбрали более одного сотрудника", "Ошибка удаления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                GlobalVariables.position = dataGridViewEmployeesList.SelectedRows[0].Cells[0].Value.ToString();
+                GlobalVariables.fullName = dataGridViewEmployeesList.SelectedRows[0].Cells[1].Value.ToString();
+                GlobalVariables.phoneNumber = dataGridViewEmployeesList.SelectedRows[0].Cells[3].Value.ToString();
+                GlobalVariables.email = dataGridViewEmployeesList.SelectedRows[0].Cells[4].Value.ToString();
+
+
+
+                DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `users` WHERE position = '{GlobalVariables.position}' AND full_name = '{GlobalVariables.fullName}' AND phone_number = '{GlobalVariables.phoneNumber}' AND email = '{GlobalVariables.email}'";
+                MySqlDataReader reader = DBConnector.mySqlCommand.ExecuteReader();
+                reader.Read();
+                user_id = reader.GetInt32("id");
+                reader.Close();
+                DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `users_groups_connection` WHERE id_user = {user_id}";
+                reader = DBConnector.mySqlCommand.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Close();
+                    MessageBox.Show("Данный работник состоит в группе, вы не можете удалить его","Ошибка удаления",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    reader.Close();
+                    DBConnector.mySqlCommand.CommandText = $@"DELETE FROM `users` WHERE id = {user_id}";
+
+                    DBConnector.mySqlCommand.ExecuteNonQuery();
+                    MessageBox.Show("Пользаватель удалён!","Удаление пользователя");
+
+                    DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `users` WHERE role = 0";
+
+                    dataGridViewEmployeesList.Rows.Clear();
+
+                    reader = DBConnector.mySqlCommand.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        dataGridViewEmployeesList.Rows.Add(reader.GetString("position"), reader.GetString("full_name"), reader.GetDateTime("date_of_birth").ToString("dd.MM.yyyy"), reader.GetString("phone_number"), reader.GetString("email"));
+                    }
+
+                    reader.Close();
                 }
 
             }

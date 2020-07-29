@@ -139,6 +139,12 @@
     <Compile Include="View\Manager%27s Forms\FormAddingNewTask.Designer.cs">
       <DependentUpon>FormAddingNewTask.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Manager%27s Forms\FormAddingNewWorkgroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Manager%27s Forms\FormAddingNewWorkgroup.Designer.cs">
+      <DependentUpon>FormAddingNewWorkgroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Manager%27s Forms\FormChangeSelectedTask.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Manager%27s Forms\FormAddingNewTask.resx">
       <DependentUpon>FormAddingNewTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Manager%27s Forms\FormAddingNewWorkgroup.resx">
+      <DependentUpon>FormAddingNewWorkgroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Manager%27s Forms\FormChangeSelectedTask.resx">
       <DependentUpon>FormChangeSelectedTask.cs</DependentUpon>

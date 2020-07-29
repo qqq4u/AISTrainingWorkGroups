@@ -32,8 +32,9 @@
             this.tabPageWorkingGroups = new System.Windows.Forms.TabPage();
             this.buttonGoToSelectedWorkGroup = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridViewEmployeesGroups = new System.Windows.Forms.DataGridView();
             this.tabPagePersonalInformation = new System.Windows.Forms.TabPage();
+            this.buttonRenewPersonalInformation = new System.Windows.Forms.Button();
+            this.comboBoxRole = new System.Windows.Forms.ComboBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.textBoxPhoneNumber = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -49,12 +50,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBoxRole = new System.Windows.Forms.ComboBox();
-            this.buttonRenewPersonalInformation = new System.Windows.Forms.Button();
+            this.dataGridViewWorkGroupsList = new System.Windows.Forms.DataGridView();
+            this.ColumnTitile = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDescroption = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlEmployeeMain.SuspendLayout();
             this.tabPageWorkingGroups.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployeesGroups)).BeginInit();
             this.tabPagePersonalInformation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorkGroupsList)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlEmployeeMain
@@ -71,9 +73,9 @@
             // 
             // tabPageWorkingGroups
             // 
+            this.tabPageWorkingGroups.Controls.Add(this.dataGridViewWorkGroupsList);
             this.tabPageWorkingGroups.Controls.Add(this.buttonGoToSelectedWorkGroup);
             this.tabPageWorkingGroups.Controls.Add(this.label1);
-            this.tabPageWorkingGroups.Controls.Add(this.dataGridViewEmployeesGroups);
             this.tabPageWorkingGroups.Location = new System.Drawing.Point(4, 22);
             this.tabPageWorkingGroups.Name = "tabPageWorkingGroups";
             this.tabPageWorkingGroups.Padding = new System.Windows.Forms.Padding(3);
@@ -99,14 +101,6 @@
             this.label1.Size = new System.Drawing.Size(241, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Список рабочих групп, в которых вы состоите";
-            // 
-            // dataGridViewEmployeesGroups
-            // 
-            this.dataGridViewEmployeesGroups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewEmployeesGroups.Location = new System.Drawing.Point(26, 29);
-            this.dataGridViewEmployeesGroups.Name = "dataGridViewEmployeesGroups";
-            this.dataGridViewEmployeesGroups.Size = new System.Drawing.Size(741, 355);
-            this.dataGridViewEmployeesGroups.TabIndex = 4;
             // 
             // tabPagePersonalInformation
             // 
@@ -134,6 +128,31 @@
             this.tabPagePersonalInformation.TabIndex = 1;
             this.tabPagePersonalInformation.Text = "Личная информация";
             this.tabPagePersonalInformation.UseVisualStyleBackColor = true;
+            // 
+            // buttonRenewPersonalInformation
+            // 
+            this.buttonRenewPersonalInformation.Location = new System.Drawing.Point(250, 354);
+            this.buttonRenewPersonalInformation.Name = "buttonRenewPersonalInformation";
+            this.buttonRenewPersonalInformation.Size = new System.Drawing.Size(229, 23);
+            this.buttonRenewPersonalInformation.TabIndex = 53;
+            this.buttonRenewPersonalInformation.Text = "Обновить личную инфомацию";
+            this.buttonRenewPersonalInformation.UseVisualStyleBackColor = true;
+            this.buttonRenewPersonalInformation.Click += new System.EventHandler(this.buttonRenewPersonalInformation_Click);
+            // 
+            // comboBoxRole
+            // 
+            this.comboBoxRole.AutoCompleteCustomSource.AddRange(new string[] {
+            "Сотрудник",
+            "Руководитель"});
+            this.comboBoxRole.Enabled = false;
+            this.comboBoxRole.FormattingEnabled = true;
+            this.comboBoxRole.Items.AddRange(new object[] {
+            "Сотрудник ",
+            "Руководитель"});
+            this.comboBoxRole.Location = new System.Drawing.Point(211, 241);
+            this.comboBoxRole.Name = "comboBoxRole";
+            this.comboBoxRole.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxRole.TabIndex = 52;
             // 
             // textBoxEmail
             // 
@@ -256,30 +275,28 @@
             this.label10.TabIndex = 36;
             this.label10.Text = "ФИО";
             // 
-            // comboBoxRole
+            // dataGridViewWorkGroupsList
             // 
-            this.comboBoxRole.AutoCompleteCustomSource.AddRange(new string[] {
-            "Сотрудник",
-            "Руководитель"});
-            this.comboBoxRole.Enabled = false;
-            this.comboBoxRole.FormattingEnabled = true;
-            this.comboBoxRole.Items.AddRange(new object[] {
-            "Сотрудник ",
-            "Руководитель"});
-            this.comboBoxRole.Location = new System.Drawing.Point(211, 241);
-            this.comboBoxRole.Name = "comboBoxRole";
-            this.comboBoxRole.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxRole.TabIndex = 52;
+            this.dataGridViewWorkGroupsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewWorkGroupsList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnTitile,
+            this.ColumnDescroption});
+            this.dataGridViewWorkGroupsList.Location = new System.Drawing.Point(8, 35);
+            this.dataGridViewWorkGroupsList.Name = "dataGridViewWorkGroupsList";
+            this.dataGridViewWorkGroupsList.Size = new System.Drawing.Size(778, 351);
+            this.dataGridViewWorkGroupsList.TabIndex = 7;
             // 
-            // buttonRenewPersonalInformation
+            // ColumnTitile
             // 
-            this.buttonRenewPersonalInformation.Location = new System.Drawing.Point(250, 354);
-            this.buttonRenewPersonalInformation.Name = "buttonRenewPersonalInformation";
-            this.buttonRenewPersonalInformation.Size = new System.Drawing.Size(229, 23);
-            this.buttonRenewPersonalInformation.TabIndex = 53;
-            this.buttonRenewPersonalInformation.Text = "Обновить личную инфомацию";
-            this.buttonRenewPersonalInformation.UseVisualStyleBackColor = true;
-            this.buttonRenewPersonalInformation.Click += new System.EventHandler(this.buttonRenewPersonalInformation_Click);
+            this.ColumnTitile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnTitile.HeaderText = "Название";
+            this.ColumnTitile.Name = "ColumnTitile";
+            // 
+            // ColumnDescroption
+            // 
+            this.ColumnDescroption.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnDescroption.HeaderText = "Описание";
+            this.ColumnDescroption.Name = "ColumnDescroption";
             // 
             // FormEmployeeMain
             // 
@@ -293,9 +310,9 @@
             this.tabControlEmployeeMain.ResumeLayout(false);
             this.tabPageWorkingGroups.ResumeLayout(false);
             this.tabPageWorkingGroups.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployeesGroups)).EndInit();
             this.tabPagePersonalInformation.ResumeLayout(false);
             this.tabPagePersonalInformation.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorkGroupsList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -306,7 +323,6 @@
         private System.Windows.Forms.TabPage tabPageWorkingGroups;
         private System.Windows.Forms.Button buttonGoToSelectedWorkGroup;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridViewEmployeesGroups;
         private System.Windows.Forms.TabPage tabPagePersonalInformation;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.TextBox textBoxPhoneNumber;
@@ -325,5 +341,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox comboBoxRole;
         private System.Windows.Forms.Button buttonRenewPersonalInformation;
+        private System.Windows.Forms.DataGridView dataGridViewWorkGroupsList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTitile;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDescroption;
     }
 }

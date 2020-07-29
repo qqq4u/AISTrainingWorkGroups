@@ -9,5 +9,9 @@ namespace AISWorkGroup.Model
     public static class GlobalVariables
     {
        public static int authorizedUserId;
+        public static string fullName;
+        public static string position;
+        public static string phoneNumber;
+        public static string email;
     }
 }

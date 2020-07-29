@@ -132,6 +132,12 @@
             // comboBoxStatus
             // 
             this.comboBoxStatus.FormattingEnabled = true;
+            this.comboBoxStatus.Items.AddRange(new object[] {
+            "Создана",
+            "В работе",
+            "Завершена",
+            "Отклонено",
+            "Одобрено"});
             this.comboBoxStatus.Location = new System.Drawing.Point(90, 360);
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(121, 21);

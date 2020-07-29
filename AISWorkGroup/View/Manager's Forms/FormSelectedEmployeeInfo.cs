@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AISWorkGroup.Model;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,28 @@ namespace AISWorkGroup.View.Manager_s_Forms
         public FormSelectedEmployeeInfo()
         {
             InitializeComponent();
+        }
+
+        private void FormSelectedEmployeeInfo_Load(object sender, EventArgs e)
+        {
+            DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `users` WHERE position = '{GlobalVariables.position}' AND full_name = '{GlobalVariables.fullName}' AND phone_number = '{GlobalVariables.phoneNumber}' AND email = '{GlobalVariables.email}'";
+            MySqlDataReader reader = DBConnector.mySqlCommand.ExecuteReader();
+            reader.Read();
+            textBoxFullName.Text = reader.GetString("full_name");
+            textBoxLogin.Text = reader.GetString("login");
+            textBoxPassword.Text = reader.GetString("password");
+            textBoxPosition.Text = reader.GetString("position");
+            comboBoxRole.SelectedIndex = reader.GetInt32("role");
+            textBoxPhoneNumber.Text = reader.GetString("phone_number");
+            textBoxEmail.Text = reader.GetString("email");
+            dateTimePickerBirthDate.Value = reader.GetDateTime("date_of_birth");
+            reader.Close();
+
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

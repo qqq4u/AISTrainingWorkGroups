@@ -38,6 +38,7 @@
             this.buttonEditPhoto2 = new System.Windows.Forms.Button();
             this.buttonEditReport = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
+            this.openFileDialogPhoto = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -132,6 +133,10 @@
             this.buttonExit.Text = "Выйти";
             this.buttonExit.UseVisualStyleBackColor = true;
             // 
+            // openFileDialogPhoto
+            // 
+            this.openFileDialogPhoto.FileName = "openFileDialogPhoto";
+            // 
             // FormEditingReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,5 +173,6 @@
         private System.Windows.Forms.Button buttonEditPhoto2;
         private System.Windows.Forms.Button buttonEditReport;
         private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.OpenFileDialog openFileDialogPhoto;
     }
 }

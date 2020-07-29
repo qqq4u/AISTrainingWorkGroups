@@ -30,16 +30,23 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageEmployees = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonDeleteSelectedEmployee = new System.Windows.Forms.Button();
+            this.buttonInformationAboutSelectedEmployee = new System.Windows.Forms.Button();
             this.dataGridViewEmployeesList = new System.Windows.Forms.DataGridView();
+            this.ColumnPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageWorkingGroups = new System.Windows.Forms.TabPage();
             this.buttonDeleteSelectedWorkGroup = new System.Windows.Forms.Button();
             this.buttonGoToSelectedWorkGroup = new System.Windows.Forms.Button();
             this.buttonEditSelectedWorkGroup = new System.Windows.Forms.Button();
-            this.buttonCreateNewWorkGroup = new System.Windows.Forms.Button();
+            this.buttonAddNewWorkGroup = new System.Windows.Forms.Button();
             this.dataGridViewWorkGroupsList = new System.Windows.Forms.DataGridView();
+            this.ColumnTitile = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDescroption = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPagePersonalInformation = new System.Windows.Forms.TabPage();
             this.comboBoxRole = new System.Windows.Forms.ComboBox();
@@ -59,11 +66,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.ColumnPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPageEmployees.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployeesList)).BeginInit();
@@ -87,8 +89,8 @@
             // 
             // tabPageEmployees
             // 
-            this.tabPageEmployees.Controls.Add(this.button2);
-            this.tabPageEmployees.Controls.Add(this.button1);
+            this.tabPageEmployees.Controls.Add(this.buttonDeleteSelectedEmployee);
+            this.tabPageEmployees.Controls.Add(this.buttonInformationAboutSelectedEmployee);
             this.tabPageEmployees.Controls.Add(this.dataGridViewEmployeesList);
             this.tabPageEmployees.Controls.Add(this.label1);
             this.tabPageEmployees.Location = new System.Drawing.Point(4, 22);
@@ -99,23 +101,25 @@
             this.tabPageEmployees.Text = "Сотрудники";
             this.tabPageEmployees.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // buttonDeleteSelectedEmployee
             // 
-            this.button2.Location = new System.Drawing.Point(66, 393);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(661, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Удалить выбранного сотрудника";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonDeleteSelectedEmployee.Location = new System.Drawing.Point(66, 393);
+            this.buttonDeleteSelectedEmployee.Name = "buttonDeleteSelectedEmployee";
+            this.buttonDeleteSelectedEmployee.Size = new System.Drawing.Size(661, 23);
+            this.buttonDeleteSelectedEmployee.TabIndex = 3;
+            this.buttonDeleteSelectedEmployee.Text = "Удалить выбранного сотрудника";
+            this.buttonDeleteSelectedEmployee.UseVisualStyleBackColor = true;
+            this.buttonDeleteSelectedEmployee.Click += new System.EventHandler(this.buttonDeleteSelectedEmployee_Click);
             // 
-            // button1
+            // buttonInformationAboutSelectedEmployee
             // 
-            this.button1.Location = new System.Drawing.Point(66, 364);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(661, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Подробная информация о выбранном сотруднике";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonInformationAboutSelectedEmployee.Location = new System.Drawing.Point(66, 364);
+            this.buttonInformationAboutSelectedEmployee.Name = "buttonInformationAboutSelectedEmployee";
+            this.buttonInformationAboutSelectedEmployee.Size = new System.Drawing.Size(661, 23);
+            this.buttonInformationAboutSelectedEmployee.TabIndex = 2;
+            this.buttonInformationAboutSelectedEmployee.Text = "Подробная информация о выбранном сотруднике";
+            this.buttonInformationAboutSelectedEmployee.UseVisualStyleBackColor = true;
+            this.buttonInformationAboutSelectedEmployee.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridViewEmployeesList
             // 
@@ -131,6 +135,39 @@
             this.dataGridViewEmployeesList.Size = new System.Drawing.Size(776, 323);
             this.dataGridViewEmployeesList.TabIndex = 1;
             // 
+            // ColumnPosition
+            // 
+            this.ColumnPosition.FillWeight = 150F;
+            this.ColumnPosition.HeaderText = "Должность";
+            this.ColumnPosition.Name = "ColumnPosition";
+            this.ColumnPosition.Width = 125;
+            // 
+            // ColumnFullName
+            // 
+            this.ColumnFullName.FillWeight = 200F;
+            this.ColumnFullName.HeaderText = "ФИО";
+            this.ColumnFullName.Name = "ColumnFullName";
+            this.ColumnFullName.Width = 200;
+            // 
+            // ColumnDateOfBirth
+            // 
+            this.ColumnDateOfBirth.HeaderText = "Дата рождения";
+            this.ColumnDateOfBirth.Name = "ColumnDateOfBirth";
+            // 
+            // ColumnPhoneNumber
+            // 
+            this.ColumnPhoneNumber.FillWeight = 150F;
+            this.ColumnPhoneNumber.HeaderText = "Телефон";
+            this.ColumnPhoneNumber.Name = "ColumnPhoneNumber";
+            this.ColumnPhoneNumber.Width = 150;
+            // 
+            // ColumnEmail
+            // 
+            this.ColumnEmail.FillWeight = 150F;
+            this.ColumnEmail.HeaderText = "E-Mail";
+            this.ColumnEmail.Name = "ColumnEmail";
+            this.ColumnEmail.Width = 150;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -145,7 +182,7 @@
             this.tabPageWorkingGroups.Controls.Add(this.buttonDeleteSelectedWorkGroup);
             this.tabPageWorkingGroups.Controls.Add(this.buttonGoToSelectedWorkGroup);
             this.tabPageWorkingGroups.Controls.Add(this.buttonEditSelectedWorkGroup);
-            this.tabPageWorkingGroups.Controls.Add(this.buttonCreateNewWorkGroup);
+            this.tabPageWorkingGroups.Controls.Add(this.buttonAddNewWorkGroup);
             this.tabPageWorkingGroups.Controls.Add(this.dataGridViewWorkGroupsList);
             this.tabPageWorkingGroups.Controls.Add(this.label2);
             this.tabPageWorkingGroups.Location = new System.Drawing.Point(4, 22);
@@ -162,7 +199,7 @@
             this.buttonDeleteSelectedWorkGroup.Name = "buttonDeleteSelectedWorkGroup";
             this.buttonDeleteSelectedWorkGroup.Size = new System.Drawing.Size(329, 23);
             this.buttonDeleteSelectedWorkGroup.TabIndex = 9;
-            this.buttonDeleteSelectedWorkGroup.Text = "Удалить выбранного сотрудника";
+            this.buttonDeleteSelectedWorkGroup.Text = "Удалить выбранную рабочую группу";
             this.buttonDeleteSelectedWorkGroup.UseVisualStyleBackColor = true;
             // 
             // buttonGoToSelectedWorkGroup
@@ -171,7 +208,7 @@
             this.buttonGoToSelectedWorkGroup.Name = "buttonGoToSelectedWorkGroup";
             this.buttonGoToSelectedWorkGroup.Size = new System.Drawing.Size(329, 23);
             this.buttonGoToSelectedWorkGroup.TabIndex = 8;
-            this.buttonGoToSelectedWorkGroup.Text = "Подробная информация о выбранном сотруднике";
+            this.buttonGoToSelectedWorkGroup.Text = "Перейти к выбранной рабочей группе";
             this.buttonGoToSelectedWorkGroup.UseVisualStyleBackColor = true;
             // 
             // buttonEditSelectedWorkGroup
@@ -183,22 +220,38 @@
             this.buttonEditSelectedWorkGroup.Text = "Изменить выбранную рабочую группу";
             this.buttonEditSelectedWorkGroup.UseVisualStyleBackColor = true;
             // 
-            // buttonCreateNewWorkGroup
+            // buttonAddNewWorkGroup
             // 
-            this.buttonCreateNewWorkGroup.Location = new System.Drawing.Point(65, 362);
-            this.buttonCreateNewWorkGroup.Name = "buttonCreateNewWorkGroup";
-            this.buttonCreateNewWorkGroup.Size = new System.Drawing.Size(329, 23);
-            this.buttonCreateNewWorkGroup.TabIndex = 6;
-            this.buttonCreateNewWorkGroup.Text = "Добавить новую рабочую группу";
-            this.buttonCreateNewWorkGroup.UseVisualStyleBackColor = true;
+            this.buttonAddNewWorkGroup.Location = new System.Drawing.Point(65, 362);
+            this.buttonAddNewWorkGroup.Name = "buttonAddNewWorkGroup";
+            this.buttonAddNewWorkGroup.Size = new System.Drawing.Size(329, 23);
+            this.buttonAddNewWorkGroup.TabIndex = 6;
+            this.buttonAddNewWorkGroup.Text = "Добавить новую рабочую группу";
+            this.buttonAddNewWorkGroup.UseVisualStyleBackColor = true;
+            this.buttonAddNewWorkGroup.Click += new System.EventHandler(this.buttonAddNewWorkGroup_Click);
             // 
             // dataGridViewWorkGroupsList
             // 
             this.dataGridViewWorkGroupsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewWorkGroupsList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnTitile,
+            this.ColumnDescroption});
             this.dataGridViewWorkGroupsList.Location = new System.Drawing.Point(11, 33);
             this.dataGridViewWorkGroupsList.Name = "dataGridViewWorkGroupsList";
             this.dataGridViewWorkGroupsList.Size = new System.Drawing.Size(778, 323);
             this.dataGridViewWorkGroupsList.TabIndex = 5;
+            // 
+            // ColumnTitile
+            // 
+            this.ColumnTitile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnTitile.HeaderText = "Название";
+            this.ColumnTitile.Name = "ColumnTitile";
+            // 
+            // ColumnDescroption
+            // 
+            this.ColumnDescroption.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnDescroption.HeaderText = "Описание";
+            this.ColumnDescroption.Name = "ColumnDescroption";
             // 
             // label2
             // 
@@ -383,39 +436,6 @@
             this.label10.TabIndex = 17;
             this.label10.Text = "ФИО";
             // 
-            // ColumnPosition
-            // 
-            this.ColumnPosition.FillWeight = 150F;
-            this.ColumnPosition.HeaderText = "Должность";
-            this.ColumnPosition.Name = "ColumnPosition";
-            this.ColumnPosition.Width = 125;
-            // 
-            // ColumnFullName
-            // 
-            this.ColumnFullName.FillWeight = 200F;
-            this.ColumnFullName.HeaderText = "ФИО";
-            this.ColumnFullName.Name = "ColumnFullName";
-            this.ColumnFullName.Width = 200;
-            // 
-            // ColumnDateOfBirth
-            // 
-            this.ColumnDateOfBirth.HeaderText = "Дата рождения";
-            this.ColumnDateOfBirth.Name = "ColumnDateOfBirth";
-            // 
-            // ColumnPhoneNumber
-            // 
-            this.ColumnPhoneNumber.FillWeight = 150F;
-            this.ColumnPhoneNumber.HeaderText = "Телефон";
-            this.ColumnPhoneNumber.Name = "ColumnPhoneNumber";
-            this.ColumnPhoneNumber.Width = 150;
-            // 
-            // ColumnEmail
-            // 
-            this.ColumnEmail.FillWeight = 150F;
-            this.ColumnEmail.HeaderText = "E-Mail";
-            this.ColumnEmail.Name = "ColumnEmail";
-            this.ColumnEmail.Width = 150;
-            // 
             // FormManagerMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,12 +466,12 @@
         private System.Windows.Forms.TabPage tabPagePersonalInformation;
         private System.Windows.Forms.DataGridView dataGridViewEmployeesList;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonDeleteSelectedEmployee;
+        private System.Windows.Forms.Button buttonInformationAboutSelectedEmployee;
         private System.Windows.Forms.Button buttonDeleteSelectedWorkGroup;
         private System.Windows.Forms.Button buttonGoToSelectedWorkGroup;
         private System.Windows.Forms.Button buttonEditSelectedWorkGroup;
-        private System.Windows.Forms.Button buttonCreateNewWorkGroup;
+        private System.Windows.Forms.Button buttonAddNewWorkGroup;
         private System.Windows.Forms.DataGridView dataGridViewWorkGroupsList;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonRenewPersonalInformation;
@@ -476,5 +496,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDateOfBirth;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPhoneNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTitile;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDescroption;
     }
 }

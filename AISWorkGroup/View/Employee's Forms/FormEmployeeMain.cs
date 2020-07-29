@@ -1,5 +1,6 @@
 ﻿using AISWorkGroup.Model;
 using MySql.Data.MySqlClient;
+using MySql.Data.Types;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,6 +34,32 @@ namespace AISWorkGroup.View.Employee_s_Forms
             textBoxEmail.Text = reader.GetString("email");
             dateTimePickerDateOfBirth.Value = reader.GetDateTime("date_of_birth");
             reader.Close();
+
+            DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `users_groups_connection` WHERE id_user = {GlobalVariables.authorizedUserId}";
+
+            MySqlDataReader reader2; 
+
+            reader = DBConnector.mySqlCommand.ExecuteReader();
+            while(reader.HasRows)
+            {
+
+////////////////////////////// НЕ ЗНАЮ КАК СДЕЛАТЬ ДЖООООЙН
+
+                //"SELECT "
+
+                 
+                reader.Read();
+                DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `workgroups` WHERE id = {reader.GetInt32("id_group")}";
+
+                reader2 = DBConnector.mySqlCommand.ExecuteReader();
+                if (reader2.Read())
+                {
+                    dataGridViewWorkGroupsList.Rows.Add(reader2.GetString("name"), reader2.GetString("description"));
+                }
+                reader2.Close();
+            }
+
+
         }
 
         private void buttonRenewPersonalInformation_Click(object sender, EventArgs e)
