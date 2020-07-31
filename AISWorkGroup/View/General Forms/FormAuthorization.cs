@@ -55,7 +55,6 @@ namespace AISWorkGroup.View.General_Forms
                         textBoxLogin.Clear();
                         textBoxPassword.Clear();
                         comboBoxRole.Text = string.Empty;
-                       
                     }
                     else
                     {
@@ -69,6 +68,7 @@ namespace AISWorkGroup.View.General_Forms
                         textBoxLogin.Clear();
                         textBoxPassword.Clear();
                         comboBoxRole.Text = string.Empty;
+
                     }
                 }
                 else

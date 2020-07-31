@@ -16,5 +16,10 @@ namespace AISWorkGroup.View.Employee_s_Forms
         {
             InitializeComponent();
         }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

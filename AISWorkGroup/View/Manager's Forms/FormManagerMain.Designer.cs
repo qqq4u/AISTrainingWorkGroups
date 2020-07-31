@@ -201,6 +201,7 @@
             this.buttonDeleteSelectedWorkGroup.TabIndex = 9;
             this.buttonDeleteSelectedWorkGroup.Text = "Удалить выбранную рабочую группу";
             this.buttonDeleteSelectedWorkGroup.UseVisualStyleBackColor = true;
+            this.buttonDeleteSelectedWorkGroup.Click += new System.EventHandler(this.buttonDeleteSelectedWorkGroup_Click);
             // 
             // buttonGoToSelectedWorkGroup
             // 
@@ -210,6 +211,7 @@
             this.buttonGoToSelectedWorkGroup.TabIndex = 8;
             this.buttonGoToSelectedWorkGroup.Text = "Перейти к выбранной рабочей группе";
             this.buttonGoToSelectedWorkGroup.UseVisualStyleBackColor = true;
+            this.buttonGoToSelectedWorkGroup.Click += new System.EventHandler(this.buttonGoToSelectedWorkGroup_Click);
             // 
             // buttonEditSelectedWorkGroup
             // 
@@ -219,6 +221,7 @@
             this.buttonEditSelectedWorkGroup.TabIndex = 7;
             this.buttonEditSelectedWorkGroup.Text = "Изменить выбранную рабочую группу";
             this.buttonEditSelectedWorkGroup.UseVisualStyleBackColor = true;
+            this.buttonEditSelectedWorkGroup.Click += new System.EventHandler(this.buttonEditSelectedWorkGroup_Click);
             // 
             // buttonAddNewWorkGroup
             // 
@@ -240,6 +243,7 @@
             this.dataGridViewWorkGroupsList.Name = "dataGridViewWorkGroupsList";
             this.dataGridViewWorkGroupsList.Size = new System.Drawing.Size(778, 323);
             this.dataGridViewWorkGroupsList.TabIndex = 5;
+            this.dataGridViewWorkGroupsList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWorkGroupsList_CellContentClick);
             // 
             // ColumnTitile
             // 

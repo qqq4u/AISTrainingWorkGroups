@@ -13,5 +13,6 @@ namespace AISWorkGroup.Model
         public static string position;
         public static string phoneNumber;
         public static string email;
+        public static int selectedWorkGroupID;
     }
 }

@@ -35,30 +35,13 @@ namespace AISWorkGroup.View.Employee_s_Forms
             dateTimePickerDateOfBirth.Value = reader.GetDateTime("date_of_birth");
             reader.Close();
 
-            DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `users_groups_connection` WHERE id_user = {GlobalVariables.authorizedUserId}";
-
-            MySqlDataReader reader2; 
-
+            DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `workgroups` JOIN `users_groups_connection` ON `users_groups_connection`.id_group = `workgroups`.id WHERE `users_groups_connection`.id_user = {GlobalVariables.authorizedUserId}";
             reader = DBConnector.mySqlCommand.ExecuteReader();
-            while(reader.HasRows)
+            while (reader.Read())
             {
-
-////////////////////////////// НЕ ЗНАЮ КАК СДЕЛАТЬ ДЖООООЙН
-
-                //"SELECT "
-
-                 
-                reader.Read();
-                DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `workgroups` WHERE id = {reader.GetInt32("id_group")}";
-
-                reader2 = DBConnector.mySqlCommand.ExecuteReader();
-                if (reader2.Read())
-                {
-                    dataGridViewWorkGroupsList.Rows.Add(reader2.GetString("name"), reader2.GetString("description"));
-                }
-                reader2.Close();
+                dataGridViewWorkGroupsList.Rows.Add(reader.GetString("name"), reader.GetString("description"));
             }
-
+            reader.Close();
 
         }
 
@@ -90,6 +73,27 @@ namespace AISWorkGroup.View.Employee_s_Forms
             }
 
         }
-        
+
+        private void buttonGoToSelectedWorkGroup_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewWorkGroupsList.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Вы не выбрали ни одной группы или выбрали более одной", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `workgroups` WHERE name = '{dataGridViewWorkGroupsList.SelectedRows[0].Cells[0].Value.ToString()}' AND description = '{dataGridViewWorkGroupsList.SelectedRows[0].Cells[1].Value.ToString()}' ";
+                MySqlDataReader reader = DBConnector.mySqlCommand.ExecuteReader();
+                reader.Read();
+                GlobalVariables.selectedWorkGroupID = reader.GetInt32("id");
+                reader.Close();
+                this.Visible = false;
+                Form form = new FormGroupInfo();
+                form.ShowDialog();
+                this.Visible = true;
+            }
+
+           
+        }
     }
 }

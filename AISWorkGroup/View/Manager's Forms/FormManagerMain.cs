@@ -21,7 +21,7 @@ namespace AISWorkGroup.View.Manager_s_Forms
 
         private void tabPagePersonalInformation_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void FormManagerMain_Load(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace AISWorkGroup.View.Manager_s_Forms
             textBoxEmail.Text = reader.GetString("email");
             dateTimePickerDateOfBirth.Value = reader.GetDateTime("date_of_birth");
             reader.Close();
-            
+
 
 
 
@@ -51,7 +51,7 @@ namespace AISWorkGroup.View.Manager_s_Forms
             reader = DBConnector.mySqlCommand.ExecuteReader();
             while (reader.Read())
             {
-                dataGridViewEmployeesList.Rows.Add(reader.GetString("position"),reader.GetString("full_name"),reader.GetDateTime("date_of_birth").ToString("dd.MM.yyyy"), reader.GetString("phone_number"), reader.GetString("email"));
+                dataGridViewEmployeesList.Rows.Add(reader.GetString("position"), reader.GetString("full_name"), reader.GetDateTime("date_of_birth").ToString("dd.MM.yyyy"), reader.GetString("phone_number"), reader.GetString("email"));
             }
 
             reader.Close();
@@ -99,8 +99,8 @@ namespace AISWorkGroup.View.Manager_s_Forms
                     reader.Close();
                     DBConnector.mySqlCommand.CommandText = $@"UPDATE `users` SET full_name = '{ textBoxFullName.Text}',login = '{textBoxLogin.Text}',password = '{textBoxPassword.Text}', position = '{textBoxPosition.Text}', role = {comboBoxRole.SelectedIndex}, phone_number = '{textBoxPhoneNumber.Text}', email = '{textBoxEmail.Text}', date_of_birth = '{dateTimePickerDateOfBirth.Value:yyyy-MM-dd}' WHERE id = {GlobalVariables.authorizedUserId}";
                     DBConnector.mySqlCommand.ExecuteNonQuery();
-                    MessageBox.Show("Обновление личной информации выполнено","Успешно!",MessageBoxButtons.OK);
-                    
+                    MessageBox.Show("Обновление личной информации выполнено", "Успешно!", MessageBoxButtons.OK);
+
 
                 }
 
@@ -122,7 +122,7 @@ namespace AISWorkGroup.View.Manager_s_Forms
             while (reader.Read())
             {
                 dataGridViewWorkGroupsList.Rows.Add(reader.GetString("name"), reader.GetString("description"));
-            }   
+            }
 
             reader.Close();
         }
@@ -173,7 +173,7 @@ namespace AISWorkGroup.View.Manager_s_Forms
                 if (reader.HasRows)
                 {
                     reader.Close();
-                    MessageBox.Show("Данный работник состоит в группе, вы не можете удалить его","Ошибка удаления",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Данный работник состоит в группе, вы не можете удалить его", "Ошибка удаления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -181,7 +181,7 @@ namespace AISWorkGroup.View.Manager_s_Forms
                     DBConnector.mySqlCommand.CommandText = $@"DELETE FROM `users` WHERE id = {user_id}";
 
                     DBConnector.mySqlCommand.ExecuteNonQuery();
-                    MessageBox.Show("Пользаватель удалён!","Удаление пользователя");
+                    MessageBox.Show("Пользаватель удалён!", "Удаление пользователя");
 
                     DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `users` WHERE role = 0";
 
@@ -198,5 +198,100 @@ namespace AISWorkGroup.View.Manager_s_Forms
 
             }
         }
+
+        private void dataGridViewWorkGroupsList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void buttonEditSelectedWorkGroup_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewWorkGroupsList.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Вы не выбрали ни одной группы или выбрали более одной", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `workgroups` WHERE name = '{dataGridViewWorkGroupsList.SelectedRows[0].Cells[0].Value.ToString()}' AND description = '{dataGridViewWorkGroupsList.SelectedRows[0].Cells[1].Value.ToString()}' ";
+                MySqlDataReader reader = DBConnector.mySqlCommand.ExecuteReader();
+                reader.Read();
+                GlobalVariables.selectedWorkGroupID = reader.GetInt32("id");
+                reader.Close();
+                this.Visible = false;
+                FormChangeSelectedWorkGroup form = new FormChangeSelectedWorkGroup();
+                form.ShowDialog();
+                this.Visible = true;
+            }
+        }
+
+        private void buttonDeleteSelectedWorkGroup_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewWorkGroupsList.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Вы не выбрали ни одной группы или выбрали более одной", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `workgroups` WHERE name = '{dataGridViewWorkGroupsList.SelectedRows[0].Cells[0].Value.ToString()}' AND description = '{dataGridViewWorkGroupsList.SelectedRows[0].Cells[1].Value.ToString()}' ";
+                MySqlDataReader reader = DBConnector.mySqlCommand.ExecuteReader();
+                reader.Read();
+                GlobalVariables.selectedWorkGroupID = reader.GetInt32("id");
+                reader.Close();
+
+                DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `tasks` WHERE group_id = {GlobalVariables.selectedWorkGroupID}";
+                if (reader.HasRows)
+                {
+                    reader.Close();
+                    MessageBox.Show("Невозможно удалить выбранную группу, у неё есть задания","Ошибка удаления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    reader.Close();
+                    DBConnector.mySqlCommand.CommandText = $@"DELETE FROM `workgroups` WHERE id = {GlobalVariables.selectedWorkGroupID}";
+                    DBConnector.mySqlCommand.ExecuteNonQuery();
+                    DBConnector.mySqlCommand.CommandText = $@"DELETE FROM `users_groups_connection` WHERE id_group = {GlobalVariables.selectedWorkGroupID}";
+                    DBConnector.mySqlCommand.ExecuteNonQuery();
+
+
+                    DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `workgroups`";
+
+                    dataGridViewWorkGroupsList.Rows.Clear();
+
+                    reader = DBConnector.mySqlCommand.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        dataGridViewWorkGroupsList.Rows.Add(reader.GetString("name"), reader.GetString("description"));
+                    }
+
+                    reader.Close();
+
+
+                    MessageBox.Show("Группа была успешно удалена", "Удалено");
+
+
+                }
+            }
+        }
+
+        private void buttonGoToSelectedWorkGroup_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewWorkGroupsList.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Вы не выбрали ни одной группы или выбрали более одной", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `workgroups` WHERE name = '{dataGridViewWorkGroupsList.SelectedRows[0].Cells[0].Value.ToString()}' AND description = '{dataGridViewWorkGroupsList.SelectedRows[0].Cells[1].Value.ToString()}' ";
+                MySqlDataReader reader = DBConnector.mySqlCommand.ExecuteReader();
+                reader.Read();
+                GlobalVariables.selectedWorkGroupID = reader.GetInt32("id");
+                reader.Close();
+                this.Visible = false;
+                Form form = new FormGroupInfo();
+                form.ShowDialog();
+                this.Visible = true;
+            }
+        }
+    
     }
 }

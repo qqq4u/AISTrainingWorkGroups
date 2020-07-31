@@ -31,7 +31,6 @@
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonLookSelectedTaskWithReport = new System.Windows.Forms.Button();
             this.dataGridViewTasksForGroup = new System.Windows.Forms.DataGridView();
-            this.dataGridViewEmployeesInGroup = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,8 +40,11 @@
             this.buttonAddNewTAskForWorkGroup = new System.Windows.Forms.Button();
             this.buttonEditSelectedTaskForWorkGroup = new System.Windows.Forms.Button();
             this.buttonDeleteSelectedTaskForWorkGroup = new System.Windows.Forms.Button();
+            this.dataGridViewEployeesInSelectedGroup = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTasksForGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployeesInGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEployeesInSelectedGroup)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonExit
@@ -53,6 +55,7 @@
             this.buttonExit.TabIndex = 19;
             this.buttonExit.Text = "Выйти";
             this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // buttonLookSelectedTaskWithReport
             // 
@@ -66,23 +69,15 @@
             // dataGridViewTasksForGroup
             // 
             this.dataGridViewTasksForGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTasksForGroup.Location = new System.Drawing.Point(513, 195);
+            this.dataGridViewTasksForGroup.Location = new System.Drawing.Point(527, 291);
             this.dataGridViewTasksForGroup.Name = "dataGridViewTasksForGroup";
             this.dataGridViewTasksForGroup.Size = new System.Drawing.Size(240, 150);
             this.dataGridViewTasksForGroup.TabIndex = 17;
             // 
-            // dataGridViewEmployeesInGroup
-            // 
-            this.dataGridViewEmployeesInGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewEmployeesInGroup.Location = new System.Drawing.Point(513, 17);
-            this.dataGridViewEmployeesInGroup.Name = "dataGridViewEmployeesInGroup";
-            this.dataGridViewEmployeesInGroup.Size = new System.Drawing.Size(240, 150);
-            this.dataGridViewEmployeesInGroup.TabIndex = 16;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(583, 170);
+            this.label4.Location = new System.Drawing.Point(596, 262);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 13);
             this.label4.TabIndex = 15;
@@ -157,18 +152,41 @@
             this.buttonDeleteSelectedTaskForWorkGroup.Text = "Удалить выбранную задачу для рабочей группы";
             this.buttonDeleteSelectedTaskForWorkGroup.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewEployeesInSelectedGroup
+            // 
+            this.dataGridViewEployeesInSelectedGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEployeesInSelectedGroup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
+            this.dataGridViewEployeesInSelectedGroup.Location = new System.Drawing.Point(498, 17);
+            this.dataGridViewEployeesInSelectedGroup.Name = "dataGridViewEployeesInSelectedGroup";
+            this.dataGridViewEployeesInSelectedGroup.Size = new System.Drawing.Size(347, 225);
+            this.dataGridViewEployeesInSelectedGroup.TabIndex = 23;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Должность";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.HeaderText = "ФИО";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
             // FormGroupInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(980, 675);
+            this.Controls.Add(this.dataGridViewEployeesInSelectedGroup);
             this.Controls.Add(this.buttonDeleteSelectedTaskForWorkGroup);
             this.Controls.Add(this.buttonEditSelectedTaskForWorkGroup);
             this.Controls.Add(this.buttonAddNewTAskForWorkGroup);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonLookSelectedTaskWithReport);
             this.Controls.Add(this.dataGridViewTasksForGroup);
-            this.Controls.Add(this.dataGridViewEmployeesInGroup);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -177,8 +195,9 @@
             this.Controls.Add(this.textBoxName);
             this.Name = "FormGroupInfo";
             this.Text = "FormGroupInfo";
+            this.Load += new System.EventHandler(this.FormGroupInfo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTasksForGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployeesInGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEployeesInSelectedGroup)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,7 +208,6 @@
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button buttonLookSelectedTaskWithReport;
         private System.Windows.Forms.DataGridView dataGridViewTasksForGroup;
-        private System.Windows.Forms.DataGridView dataGridViewEmployeesInGroup;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -199,5 +217,8 @@
         private System.Windows.Forms.Button buttonAddNewTAskForWorkGroup;
         private System.Windows.Forms.Button buttonEditSelectedTaskForWorkGroup;
         private System.Windows.Forms.Button buttonDeleteSelectedTaskForWorkGroup;
+        private System.Windows.Forms.DataGridView dataGridViewEployeesInSelectedGroup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }

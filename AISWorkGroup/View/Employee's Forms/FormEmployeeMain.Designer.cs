@@ -30,6 +30,9 @@
         {
             this.tabControlEmployeeMain = new System.Windows.Forms.TabControl();
             this.tabPageWorkingGroups = new System.Windows.Forms.TabPage();
+            this.dataGridViewWorkGroupsList = new System.Windows.Forms.DataGridView();
+            this.ColumnTitile = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDescroption = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonGoToSelectedWorkGroup = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPagePersonalInformation = new System.Windows.Forms.TabPage();
@@ -50,13 +53,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.dataGridViewWorkGroupsList = new System.Windows.Forms.DataGridView();
-            this.ColumnTitile = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDescroption = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlEmployeeMain.SuspendLayout();
             this.tabPageWorkingGroups.SuspendLayout();
-            this.tabPagePersonalInformation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorkGroupsList)).BeginInit();
+            this.tabPagePersonalInformation.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlEmployeeMain
@@ -84,6 +84,29 @@
             this.tabPageWorkingGroups.Text = "Рабочие группы";
             this.tabPageWorkingGroups.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewWorkGroupsList
+            // 
+            this.dataGridViewWorkGroupsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewWorkGroupsList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnTitile,
+            this.ColumnDescroption});
+            this.dataGridViewWorkGroupsList.Location = new System.Drawing.Point(8, 35);
+            this.dataGridViewWorkGroupsList.Name = "dataGridViewWorkGroupsList";
+            this.dataGridViewWorkGroupsList.Size = new System.Drawing.Size(778, 351);
+            this.dataGridViewWorkGroupsList.TabIndex = 7;
+            // 
+            // ColumnTitile
+            // 
+            this.ColumnTitile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnTitile.HeaderText = "Название";
+            this.ColumnTitile.Name = "ColumnTitile";
+            // 
+            // ColumnDescroption
+            // 
+            this.ColumnDescroption.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnDescroption.HeaderText = "Описание";
+            this.ColumnDescroption.Name = "ColumnDescroption";
+            // 
             // buttonGoToSelectedWorkGroup
             // 
             this.buttonGoToSelectedWorkGroup.Location = new System.Drawing.Point(56, 392);
@@ -92,6 +115,7 @@
             this.buttonGoToSelectedWorkGroup.TabIndex = 6;
             this.buttonGoToSelectedWorkGroup.Text = "Перейти к выбранной рабочей группе";
             this.buttonGoToSelectedWorkGroup.UseVisualStyleBackColor = true;
+            this.buttonGoToSelectedWorkGroup.Click += new System.EventHandler(this.buttonGoToSelectedWorkGroup_Click);
             // 
             // label1
             // 
@@ -275,29 +299,6 @@
             this.label10.TabIndex = 36;
             this.label10.Text = "ФИО";
             // 
-            // dataGridViewWorkGroupsList
-            // 
-            this.dataGridViewWorkGroupsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewWorkGroupsList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnTitile,
-            this.ColumnDescroption});
-            this.dataGridViewWorkGroupsList.Location = new System.Drawing.Point(8, 35);
-            this.dataGridViewWorkGroupsList.Name = "dataGridViewWorkGroupsList";
-            this.dataGridViewWorkGroupsList.Size = new System.Drawing.Size(778, 351);
-            this.dataGridViewWorkGroupsList.TabIndex = 7;
-            // 
-            // ColumnTitile
-            // 
-            this.ColumnTitile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnTitile.HeaderText = "Название";
-            this.ColumnTitile.Name = "ColumnTitile";
-            // 
-            // ColumnDescroption
-            // 
-            this.ColumnDescroption.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnDescroption.HeaderText = "Описание";
-            this.ColumnDescroption.Name = "ColumnDescroption";
-            // 
             // FormEmployeeMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,9 +311,9 @@
             this.tabControlEmployeeMain.ResumeLayout(false);
             this.tabPageWorkingGroups.ResumeLayout(false);
             this.tabPageWorkingGroups.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorkGroupsList)).EndInit();
             this.tabPagePersonalInformation.ResumeLayout(false);
             this.tabPagePersonalInformation.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorkGroupsList)).EndInit();
             this.ResumeLayout(false);
 
         }

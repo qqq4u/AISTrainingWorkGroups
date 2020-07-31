@@ -21,5 +21,10 @@ namespace AISWorkGroup.View.General_Forms
         {
 
         }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
