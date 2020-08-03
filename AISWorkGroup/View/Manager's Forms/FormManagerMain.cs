@@ -220,6 +220,17 @@ namespace AISWorkGroup.View.Manager_s_Forms
                 this.Visible = false;
                 FormChangeSelectedWorkGroup form = new FormChangeSelectedWorkGroup();
                 form.ShowDialog();
+                DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `workgroups`";
+
+                dataGridViewWorkGroupsList.Rows.Clear();
+
+                 reader = DBConnector.mySqlCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    dataGridViewWorkGroupsList.Rows.Add(reader.GetString("name"), reader.GetString("description"));
+                }
+
+                reader.Close();
                 this.Visible = true;
             }
         }
@@ -239,6 +250,7 @@ namespace AISWorkGroup.View.Manager_s_Forms
                 reader.Close();
 
                 DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `tasks` WHERE group_id = {GlobalVariables.selectedWorkGroupID}";
+                reader = DBConnector.mySqlCommand.ExecuteReader();
                 if (reader.HasRows)
                 {
                     reader.Close();

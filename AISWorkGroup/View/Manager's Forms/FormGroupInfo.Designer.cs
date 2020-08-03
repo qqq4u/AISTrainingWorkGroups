@@ -31,6 +31,11 @@
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonLookSelectedTaskWithReport = new System.Windows.Forms.Button();
             this.dataGridViewTasksForGroup = new System.Windows.Forms.DataGridView();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInportance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDeadline = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -65,14 +70,46 @@
             this.buttonLookSelectedTaskWithReport.TabIndex = 18;
             this.buttonLookSelectedTaskWithReport.Text = "Посмотреть выбранную задачу вместе с отчётом";
             this.buttonLookSelectedTaskWithReport.UseVisualStyleBackColor = true;
+            this.buttonLookSelectedTaskWithReport.Click += new System.EventHandler(this.buttonLookSelectedTaskWithReport_Click);
             // 
             // dataGridViewTasksForGroup
             // 
             this.dataGridViewTasksForGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTasksForGroup.Location = new System.Drawing.Point(527, 291);
+            this.dataGridViewTasksForGroup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnName,
+            this.ColumnInportance,
+            this.ColumnDeadline,
+            this.ColumnStatus,
+            this.ColumnDescription});
+            this.dataGridViewTasksForGroup.Location = new System.Drawing.Point(398, 291);
             this.dataGridViewTasksForGroup.Name = "dataGridViewTasksForGroup";
-            this.dataGridViewTasksForGroup.Size = new System.Drawing.Size(240, 150);
+            this.dataGridViewTasksForGroup.Size = new System.Drawing.Size(547, 150);
             this.dataGridViewTasksForGroup.TabIndex = 17;
+            // 
+            // ColumnName
+            // 
+            this.ColumnName.HeaderText = "Имя";
+            this.ColumnName.Name = "ColumnName";
+            // 
+            // ColumnInportance
+            // 
+            this.ColumnInportance.HeaderText = "Важность";
+            this.ColumnInportance.Name = "ColumnInportance";
+            // 
+            // ColumnDeadline
+            // 
+            this.ColumnDeadline.HeaderText = "Дедлайн";
+            this.ColumnDeadline.Name = "ColumnDeadline";
+            // 
+            // ColumnStatus
+            // 
+            this.ColumnStatus.HeaderText = "Статус";
+            this.ColumnStatus.Name = "ColumnStatus";
+            // 
+            // ColumnDescription
+            // 
+            this.ColumnDescription.HeaderText = "Описание";
+            this.ColumnDescription.Name = "ColumnDescription";
             // 
             // label4
             // 
@@ -133,6 +170,7 @@
             this.buttonAddNewTAskForWorkGroup.TabIndex = 20;
             this.buttonAddNewTAskForWorkGroup.Text = "Добавить новую задачу для рабочей группы";
             this.buttonAddNewTAskForWorkGroup.UseVisualStyleBackColor = true;
+            this.buttonAddNewTAskForWorkGroup.Click += new System.EventHandler(this.buttonAddNewTAskForWorkGroup_Click);
             // 
             // buttonEditSelectedTaskForWorkGroup
             // 
@@ -142,6 +180,7 @@
             this.buttonEditSelectedTaskForWorkGroup.TabIndex = 21;
             this.buttonEditSelectedTaskForWorkGroup.Text = "Изменить выбранную задачу для рабочей группы";
             this.buttonEditSelectedTaskForWorkGroup.UseVisualStyleBackColor = true;
+            this.buttonEditSelectedTaskForWorkGroup.Click += new System.EventHandler(this.buttonEditSelectedTaskForWorkGroup_Click);
             // 
             // buttonDeleteSelectedTaskForWorkGroup
             // 
@@ -151,6 +190,7 @@
             this.buttonDeleteSelectedTaskForWorkGroup.TabIndex = 22;
             this.buttonDeleteSelectedTaskForWorkGroup.Text = "Удалить выбранную задачу для рабочей группы";
             this.buttonDeleteSelectedTaskForWorkGroup.UseVisualStyleBackColor = true;
+            this.buttonDeleteSelectedTaskForWorkGroup.Click += new System.EventHandler(this.buttonDeleteSelectedTaskForWorkGroup_Click);
             // 
             // dataGridViewEployeesInSelectedGroup
             // 
@@ -220,5 +260,10 @@
         private System.Windows.Forms.DataGridView dataGridViewEployeesInSelectedGroup;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInportance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDeadline;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDescription;
     }
 }

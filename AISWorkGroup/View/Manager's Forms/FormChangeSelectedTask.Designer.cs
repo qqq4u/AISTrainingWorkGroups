@@ -30,7 +30,6 @@
         {
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonChange = new System.Windows.Forms.Button();
-            this.comboBoxImportance = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.richTextBoxDescription = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxImportance = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // buttonExit
@@ -58,14 +58,7 @@
             this.buttonChange.TabIndex = 18;
             this.buttonChange.Text = "Изменить";
             this.buttonChange.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxImportance
-            // 
-            this.comboBoxImportance.FormattingEnabled = true;
-            this.comboBoxImportance.Location = new System.Drawing.Point(339, 320);
-            this.comboBoxImportance.Name = "comboBoxImportance";
-            this.comboBoxImportance.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxImportance.TabIndex = 17;
+            this.buttonChange.Click += new System.EventHandler(this.buttonChange_Click);
             // 
             // label4
             // 
@@ -125,14 +118,26 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Название";
             // 
+            // comboBoxImportance
+            // 
+            this.comboBoxImportance.FormattingEnabled = true;
+            this.comboBoxImportance.Items.AddRange(new object[] {
+            "Не срочно ",
+            "Срочно",
+            "Критично"});
+            this.comboBoxImportance.Location = new System.Drawing.Point(320, 320);
+            this.comboBoxImportance.Name = "comboBoxImportance";
+            this.comboBoxImportance.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxImportance.TabIndex = 20;
+            // 
             // FormChangeSelectedTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBoxImportance);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonChange);
-            this.Controls.Add(this.comboBoxImportance);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.richTextBoxDescription);
             this.Controls.Add(this.label3);
@@ -142,6 +147,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormChangeSelectedTask";
             this.Text = "FormChangeSelectedTask";
+            this.Load += new System.EventHandler(this.FormChangeSelectedTask_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,7 +157,6 @@
 
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button buttonChange;
-        private System.Windows.Forms.ComboBox comboBoxImportance;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox richTextBoxDescription;
         private System.Windows.Forms.Label label3;
@@ -159,5 +164,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBoxImportance;
     }
 }

@@ -101,6 +101,10 @@
             // comboBoxImportance
             // 
             this.comboBoxImportance.FormattingEnabled = true;
+            this.comboBoxImportance.Items.AddRange(new object[] {
+            "Не срочно ",
+            "Срочно",
+            "Критично"});
             this.comboBoxImportance.Location = new System.Drawing.Point(333, 315);
             this.comboBoxImportance.Name = "comboBoxImportance";
             this.comboBoxImportance.Size = new System.Drawing.Size(121, 21);
@@ -114,6 +118,7 @@
             this.buttonAdd.TabIndex = 8;
             this.buttonAdd.Text = "Добавить";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonExit
             // 

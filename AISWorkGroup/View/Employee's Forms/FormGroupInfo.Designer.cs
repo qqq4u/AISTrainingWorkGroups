@@ -34,14 +34,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridViewTasksForGroup = new System.Windows.Forms.DataGridView();
             this.buttonLookSelectedTaskWithReport = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.dataGridViewEployeesInSelectedGroup = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTasksForGroup)).BeginInit();
+            this.dataGridViewTasksForGroup = new System.Windows.Forms.DataGridView();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInportance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDeadline = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEployeesInSelectedGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTasksForGroup)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxName
@@ -95,14 +100,6 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Задачи для группы";
             // 
-            // dataGridViewTasksForGroup
-            // 
-            this.dataGridViewTasksForGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTasksForGroup.Location = new System.Drawing.Point(497, 333);
-            this.dataGridViewTasksForGroup.Name = "dataGridViewTasksForGroup";
-            this.dataGridViewTasksForGroup.Size = new System.Drawing.Size(240, 150);
-            this.dataGridViewTasksForGroup.TabIndex = 7;
-            // 
             // buttonLookSelectedTaskWithReport
             // 
             this.buttonLookSelectedTaskWithReport.Location = new System.Drawing.Point(254, 582);
@@ -111,6 +108,7 @@
             this.buttonLookSelectedTaskWithReport.TabIndex = 8;
             this.buttonLookSelectedTaskWithReport.Text = "Посмотреть выбранную задачу вместе с отчётом";
             this.buttonLookSelectedTaskWithReport.UseVisualStyleBackColor = true;
+            this.buttonLookSelectedTaskWithReport.Click += new System.EventHandler(this.buttonLookSelectedTaskWithReport_Click);
             // 
             // buttonExit
             // 
@@ -145,15 +143,54 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "ФИО";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
+            // dataGridViewTasksForGroup
+            // 
+            this.dataGridViewTasksForGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTasksForGroup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnName,
+            this.ColumnInportance,
+            this.ColumnDeadline,
+            this.ColumnStatus,
+            this.ColumnDescription});
+            this.dataGridViewTasksForGroup.Location = new System.Drawing.Point(342, 341);
+            this.dataGridViewTasksForGroup.Name = "dataGridViewTasksForGroup";
+            this.dataGridViewTasksForGroup.Size = new System.Drawing.Size(547, 150);
+            this.dataGridViewTasksForGroup.TabIndex = 20;
+            // 
+            // ColumnName
+            // 
+            this.ColumnName.HeaderText = "Имя";
+            this.ColumnName.Name = "ColumnName";
+            // 
+            // ColumnInportance
+            // 
+            this.ColumnInportance.HeaderText = "Важность";
+            this.ColumnInportance.Name = "ColumnInportance";
+            // 
+            // ColumnDeadline
+            // 
+            this.ColumnDeadline.HeaderText = "Дедлайн";
+            this.ColumnDeadline.Name = "ColumnDeadline";
+            // 
+            // ColumnStatus
+            // 
+            this.ColumnStatus.HeaderText = "Статус";
+            this.ColumnStatus.Name = "ColumnStatus";
+            // 
+            // ColumnDescription
+            // 
+            this.ColumnDescription.HeaderText = "Описание";
+            this.ColumnDescription.Name = "ColumnDescription";
+            // 
             // FormGroupInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(956, 699);
+            this.Controls.Add(this.dataGridViewTasksForGroup);
             this.Controls.Add(this.dataGridViewEployeesInSelectedGroup);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonLookSelectedTaskWithReport);
-            this.Controls.Add(this.dataGridViewTasksForGroup);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -163,8 +200,8 @@
             this.Name = "FormGroupInfo";
             this.Text = "FormGroupInfo";
             this.Load += new System.EventHandler(this.FormGroupInfo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTasksForGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEployeesInSelectedGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTasksForGroup)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,11 +215,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridViewTasksForGroup;
         private System.Windows.Forms.Button buttonLookSelectedTaskWithReport;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.DataGridView dataGridViewEployeesInSelectedGroup;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridView dataGridViewTasksForGroup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInportance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDeadline;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDescription;
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AISWorkGroup.Model;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +22,19 @@ namespace AISWorkGroup.View.Manager_s_Forms
         private void buttonExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormTaskWithReport_Load(object sender, EventArgs e)
+        {
+            DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `tasks` WHERE id = {GlobalVariables.selectedTaskID}";
+            MySqlDataReader reader = DBConnector.mySqlCommand.ExecuteReader();
+            reader.Read();
+            textBoxName.Text = reader.GetString("title");
+            textBoxDeadLine.Text = reader.GetDateTime("deadline").ToString(format:"yyyy-MM-dd");
+            richTextBoxDescription.Text = reader.GetString("description");
+            textBoxImportance.Text = reader.GetString("importance");
+            comboBoxStatus.Text = reader.GetString("status");
+            reader.Close();
         }
     }
 }

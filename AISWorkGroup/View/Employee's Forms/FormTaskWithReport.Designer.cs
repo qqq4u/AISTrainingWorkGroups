@@ -37,7 +37,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxImportance = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBoxStatus = new System.Windows.Forms.ComboBox();
             this.buttonRenewStatus = new System.Windows.Forms.Button();
             this.buttonAddReport = new System.Windows.Forms.Button();
             this.buttonChangeReport = new System.Windows.Forms.Button();
@@ -48,6 +47,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.richTextBoxReport = new System.Windows.Forms.RichTextBox();
+            this.comboBoxStatus = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -125,14 +125,6 @@
             this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 6;
             this.label5.Text = "Важность";
-            // 
-            // comboBoxStatus
-            // 
-            this.comboBoxStatus.FormattingEnabled = true;
-            this.comboBoxStatus.Location = new System.Drawing.Point(52, 358);
-            this.comboBoxStatus.Name = "comboBoxStatus";
-            this.comboBoxStatus.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxStatus.TabIndex = 9;
             // 
             // buttonRenewStatus
             // 
@@ -223,11 +215,26 @@
             this.richTextBoxReport.TabIndex = 19;
             this.richTextBoxReport.Text = "";
             // 
+            // comboBoxStatus
+            // 
+            this.comboBoxStatus.FormattingEnabled = true;
+            this.comboBoxStatus.Items.AddRange(new object[] {
+            "Создана",
+            "В работе",
+            "Завершена",
+            "Отклонено",
+            "Одобрено"});
+            this.comboBoxStatus.Location = new System.Drawing.Point(36, 358);
+            this.comboBoxStatus.Name = "comboBoxStatus";
+            this.comboBoxStatus.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxStatus.TabIndex = 30;
+            // 
             // TaskWithReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBoxStatus);
             this.Controls.Add(this.richTextBoxReport);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.pictureBox2);
@@ -238,7 +245,6 @@
             this.Controls.Add(this.buttonChangeReport);
             this.Controls.Add(this.buttonAddReport);
             this.Controls.Add(this.buttonRenewStatus);
-            this.Controls.Add(this.comboBoxStatus);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxImportance);
             this.Controls.Add(this.label5);
@@ -250,6 +256,7 @@
             this.Controls.Add(this.label1);
             this.Name = "TaskWithReport";
             this.Text = "TaskWithReport";
+            this.Load += new System.EventHandler(this.TaskWithReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -268,7 +275,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxImportance;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBoxStatus;
         private System.Windows.Forms.Button buttonRenewStatus;
         private System.Windows.Forms.Button buttonAddReport;
         private System.Windows.Forms.Button buttonChangeReport;
@@ -279,5 +285,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RichTextBox richTextBoxReport;
+        private System.Windows.Forms.ComboBox comboBoxStatus;
     }
 }
