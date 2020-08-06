@@ -30,8 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.richTextBoxReport = new System.Windows.Forms.RichTextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.buttonEditPhoto1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,8 +37,10 @@
             this.buttonEditReport = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.openFileDialogPhoto = new System.Windows.Forms.OpenFileDialog();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -60,22 +60,6 @@
             this.richTextBoxReport.TabIndex = 1;
             this.richTextBoxReport.Text = "";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(126, 220);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(143, 137);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(369, 220);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(175, 137);
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
             // buttonEditPhoto1
             // 
             this.buttonEditPhoto1.Location = new System.Drawing.Point(158, 363);
@@ -84,6 +68,7 @@
             this.buttonEditPhoto1.TabIndex = 4;
             this.buttonEditPhoto1.Text = "Изменить";
             this.buttonEditPhoto1.UseVisualStyleBackColor = true;
+            this.buttonEditPhoto1.Click += new System.EventHandler(this.buttonEditPhoto1_Click);
             // 
             // label2
             // 
@@ -92,7 +77,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Фото 2";
+            this.label2.Text = "Фото 1";
             // 
             // label3
             // 
@@ -112,6 +97,7 @@
             this.buttonEditPhoto2.TabIndex = 7;
             this.buttonEditPhoto2.Text = "Изменить";
             this.buttonEditPhoto2.UseVisualStyleBackColor = true;
+            this.buttonEditPhoto2.Click += new System.EventHandler(this.buttonEditPhoto2_Click);
             // 
             // buttonEditReport
             // 
@@ -122,6 +108,7 @@
             this.buttonEditReport.TabIndex = 8;
             this.buttonEditReport.Text = "Изменить отчёт";
             this.buttonEditReport.UseVisualStyleBackColor = true;
+            this.buttonEditReport.Click += new System.EventHandler(this.buttonEditReport_Click);
             // 
             // buttonExit
             // 
@@ -137,26 +124,47 @@
             // openFileDialogPhoto
             // 
             this.openFileDialogPhoto.FileName = "openFileDialogPhoto";
+            this.openFileDialogPhoto.Filter = " Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif" +
+    "; *.png";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(383, 220);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(175, 137);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(140, 220);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(143, 137);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
             // 
             // FormEditingReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 495);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonEditReport);
             this.Controls.Add(this.buttonEditPhoto2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonEditPhoto1);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.richTextBoxReport);
             this.Controls.Add(this.label1);
             this.Name = "FormEditingReport";
             this.Text = "FormEditingReport";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.FormEditingReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,8 +174,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox richTextBoxReport;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button buttonEditPhoto1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -175,5 +181,7 @@
         private System.Windows.Forms.Button buttonEditReport;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.OpenFileDialog openFileDialogPhoto;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

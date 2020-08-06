@@ -1,4 +1,4 @@
-﻿namespace AISWorkGroup.View.General_Forms
+﻿namespace AISWorkGroup.View.Employee_s_Forms
 {
     partial class TaskWithReport
     {
@@ -43,13 +43,13 @@
             this.buttonExit = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.richTextBoxReport = new System.Windows.Forms.RichTextBox();
             this.comboBoxStatus = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -134,6 +134,7 @@
             this.buttonRenewStatus.TabIndex = 10;
             this.buttonRenewStatus.Text = "Обновить статус";
             this.buttonRenewStatus.UseVisualStyleBackColor = true;
+            this.buttonRenewStatus.Click += new System.EventHandler(this.buttonRenewStatus_Click);
             // 
             // buttonAddReport
             // 
@@ -143,6 +144,7 @@
             this.buttonAddReport.TabIndex = 11;
             this.buttonAddReport.Text = "Добавить отчёт";
             this.buttonAddReport.UseVisualStyleBackColor = true;
+            this.buttonAddReport.Click += new System.EventHandler(this.buttonAddReport_Click);
             // 
             // buttonChangeReport
             // 
@@ -152,6 +154,7 @@
             this.buttonChangeReport.TabIndex = 12;
             this.buttonChangeReport.Text = "Изменить отчёт";
             this.buttonChangeReport.UseVisualStyleBackColor = true;
+            this.buttonChangeReport.Click += new System.EventHandler(this.buttonChangeReport_Click);
             // 
             // buttonExit
             // 
@@ -180,22 +183,6 @@
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 15;
             this.label7.Text = "Фото 2";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(269, 172);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 110);
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(450, 161);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(158, 121);
-            this.pictureBox2.TabIndex = 17;
-            this.pictureBox2.TabStop = false;
             // 
             // label8
             // 
@@ -228,17 +215,36 @@
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(121, 21);
             this.comboBoxStatus.TabIndex = 30;
+            this.comboBoxStatus.SelectedIndexChanged += new System.EventHandler(this.comboBoxStatus_SelectedIndexChanged);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(485, 161);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(175, 137);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 32;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(242, 161);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(143, 137);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 31;
+            this.pictureBox1.TabStop = false;
             // 
             // TaskWithReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboBoxStatus);
             this.Controls.Add(this.richTextBoxReport);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonExit);
@@ -257,8 +263,8 @@
             this.Name = "TaskWithReport";
             this.Text = "TaskWithReport";
             this.Load += new System.EventHandler(this.TaskWithReport_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,10 +287,10 @@
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RichTextBox richTextBoxReport;
         private System.Windows.Forms.ComboBox comboBoxStatus;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -45,6 +45,8 @@
             this.textBoxPhoneNumber = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.comboBoxRole = new System.Windows.Forms.ComboBox();
+            this.labelStatus = new System.Windows.Forms.Label();
+            this.labelStar = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonExit
@@ -189,11 +191,32 @@
             this.comboBoxRole.Size = new System.Drawing.Size(121, 21);
             this.comboBoxRole.TabIndex = 36;
             // 
+            // labelStatus
+            // 
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelStatus.Location = new System.Drawing.Point(140, 36);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(0, 16);
+            this.labelStatus.TabIndex = 57;
+            // 
+            // labelStar
+            // 
+            this.labelStar.AutoSize = true;
+            this.labelStar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelStar.Location = new System.Drawing.Point(106, 33);
+            this.labelStar.Name = "labelStar";
+            this.labelStar.Size = new System.Drawing.Size(18, 24);
+            this.labelStar.TabIndex = 56;
+            this.labelStar.Text = "*";
+            // 
             // FormSelectedEmployeeInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelStatus);
+            this.Controls.Add(this.labelStar);
             this.Controls.Add(this.comboBoxRole);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.textBoxPhoneNumber);
@@ -238,5 +261,7 @@
         private System.Windows.Forms.TextBox textBoxPhoneNumber;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.ComboBox comboBoxRole;
+        private System.Windows.Forms.Label labelStatus;
+        private System.Windows.Forms.Label labelStar;
     }
 }

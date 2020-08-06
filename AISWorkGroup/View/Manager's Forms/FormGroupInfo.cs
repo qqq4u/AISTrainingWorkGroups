@@ -98,6 +98,16 @@ namespace AISWorkGroup.View.Manager_s_Forms
                 reader.Read();
                 GlobalVariables.selectedTaskID = reader.GetInt32("id");
                 reader.Close();
+
+                DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `tasks` WHERE id = {GlobalVariables.selectedTaskID}";
+                reader.Read();
+                if (reader.GetString("status") == "Завершена" || reader.GetString("status") == "Одобрено" || reader.GetString("status") == "Отклонено")
+                {
+                    MessageBox.Show("Нельзя редактировать задачу с таким статусом","Ошибка изменения",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+
+
+
                 this.Visible = false;
                 Form form = new FormChangeSelectedTask();
                 form.ShowDialog();
@@ -131,7 +141,7 @@ namespace AISWorkGroup.View.Manager_s_Forms
                 GlobalVariables.selectedTaskID = reader.GetInt32("id");
                 reader.Close();
                 this.Visible = false;
-                Form form = new FormTaskWithReport();
+                Form form = new FormTaskWithReportManager();
                 form.ShowDialog();
                 dataGridViewTasksForGroup.Rows.Clear();
 

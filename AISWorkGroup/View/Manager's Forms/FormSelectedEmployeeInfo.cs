@@ -32,6 +32,16 @@ namespace AISWorkGroup.View.Manager_s_Forms
             textBoxPhoneNumber.Text = reader.GetString("phone_number");
             textBoxEmail.Text = reader.GetString("email");
             dateTimePickerBirthDate.Value = reader.GetDateTime("date_of_birth");
+            if (reader.GetInt32("status") == 1)
+            {
+                labelStatus.Text = "На рабочем месте";
+                labelStar.ForeColor = Color.Green;
+            }
+            else
+            {
+                labelStatus.Text = "Не на рабочем месте";
+                labelStar.ForeColor = Color.Red;
+            }
             reader.Close();
 
         }

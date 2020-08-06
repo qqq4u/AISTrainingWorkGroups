@@ -33,6 +33,16 @@ namespace AISWorkGroup.View.Employee_s_Forms
             textBoxPhoneNumber.Text = reader.GetString("phone_number");
             textBoxEmail.Text = reader.GetString("email");
             dateTimePickerDateOfBirth.Value = reader.GetDateTime("date_of_birth");
+            if (reader.GetInt32("status") == 1)
+            {
+                labelStatus.Text = "На рабочем месте";
+                labelStar.ForeColor = Color.Green;
+            }
+            else
+            {
+                labelStatus.Text = "Не на рабочем месте";
+                labelStar.ForeColor = Color.Red;
+            }
             reader.Close();
 
             DBConnector.mySqlCommand.CommandText = $@"SELECT * FROM `workgroups` JOIN `users_groups_connection` ON `users_groups_connection`.id_group = `workgroups`.id WHERE `users_groups_connection`.id_user = {GlobalVariables.authorizedUserId}";

@@ -53,6 +53,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.labelStar = new System.Windows.Forms.Label();
+            this.labelStatus = new System.Windows.Forms.Label();
             this.tabControlEmployeeMain.SuspendLayout();
             this.tabPageWorkingGroups.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorkGroupsList)).BeginInit();
@@ -128,6 +130,8 @@
             // 
             // tabPagePersonalInformation
             // 
+            this.tabPagePersonalInformation.Controls.Add(this.labelStatus);
+            this.tabPagePersonalInformation.Controls.Add(this.labelStar);
             this.tabPagePersonalInformation.Controls.Add(this.buttonRenewPersonalInformation);
             this.tabPagePersonalInformation.Controls.Add(this.comboBoxRole);
             this.tabPagePersonalInformation.Controls.Add(this.textBoxEmail);
@@ -299,6 +303,25 @@
             this.label10.TabIndex = 36;
             this.label10.Text = "ФИО";
             // 
+            // labelStar
+            // 
+            this.labelStar.AutoSize = true;
+            this.labelStar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelStar.Location = new System.Drawing.Point(78, 24);
+            this.labelStar.Name = "labelStar";
+            this.labelStar.Size = new System.Drawing.Size(18, 24);
+            this.labelStar.TabIndex = 54;
+            this.labelStar.Text = "*";
+            // 
+            // labelStatus
+            // 
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelStatus.Location = new System.Drawing.Point(112, 27);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(0, 16);
+            this.labelStatus.TabIndex = 55;
+            // 
             // FormEmployeeMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,5 +368,7 @@
         private System.Windows.Forms.DataGridView dataGridViewWorkGroupsList;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTitile;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDescroption;
+        private System.Windows.Forms.Label labelStatus;
+        private System.Windows.Forms.Label labelStar;
     }
 }

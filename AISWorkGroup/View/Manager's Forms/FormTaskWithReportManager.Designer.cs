@@ -1,6 +1,6 @@
 ﻿namespace AISWorkGroup.View.Manager_s_Forms
 {
-    partial class FormTaskWithReport
+    partial class FormTaskWithReportManager
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,11 @@
         {
             this.richTextBoxReport = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonDiscardReport = new System.Windows.Forms.Button();
             this.buttonAddReport = new System.Windows.Forms.Button();
-            this.comboBoxStatus = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxImportance = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,6 +44,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBoxStatus = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -67,22 +67,6 @@
             this.label8.Size = new System.Drawing.Size(36, 13);
             this.label8.TabIndex = 38;
             this.label8.Text = "Отчёт";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(488, 163);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(158, 121);
-            this.pictureBox2.TabIndex = 37;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(307, 174);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 110);
-            this.pictureBox1.TabIndex = 36;
-            this.pictureBox1.TabStop = false;
             // 
             // label7
             // 
@@ -120,6 +104,7 @@
             this.buttonDiscardReport.TabIndex = 32;
             this.buttonDiscardReport.Text = "Забраковать работу";
             this.buttonDiscardReport.UseVisualStyleBackColor = true;
+            this.buttonDiscardReport.Click += new System.EventHandler(this.buttonDiscardReport_Click);
             // 
             // buttonAddReport
             // 
@@ -129,20 +114,7 @@
             this.buttonAddReport.TabIndex = 31;
             this.buttonAddReport.Text = "Принять работу";
             this.buttonAddReport.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxStatus
-            // 
-            this.comboBoxStatus.FormattingEnabled = true;
-            this.comboBoxStatus.Items.AddRange(new object[] {
-            "Создана",
-            "В работе",
-            "Завершена",
-            "Отклонено",
-            "Одобрено"});
-            this.comboBoxStatus.Location = new System.Drawing.Point(90, 360);
-            this.comboBoxStatus.Name = "comboBoxStatus";
-            this.comboBoxStatus.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxStatus.TabIndex = 29;
+            this.buttonAddReport.Click += new System.EventHandler(this.buttonAddReport_Click);
             // 
             // label4
             // 
@@ -218,21 +190,46 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "Название";
             // 
-            // FormTaskWithReport
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(519, 163);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(175, 137);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 41;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(276, 163);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(143, 137);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 40;
+            this.pictureBox1.TabStop = false;
+            // 
+            // textBoxStatus
+            // 
+            this.textBoxStatus.Location = new System.Drawing.Point(90, 370);
+            this.textBoxStatus.Name = "textBoxStatus";
+            this.textBoxStatus.Size = new System.Drawing.Size(100, 20);
+            this.textBoxStatus.TabIndex = 42;
+            // 
+            // FormTaskWithReportManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(847, 440);
-            this.Controls.Add(this.richTextBoxReport);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.textBoxStatus);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.richTextBoxReport);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonDiscardReport);
             this.Controls.Add(this.buttonAddReport);
-            this.Controls.Add(this.comboBoxStatus);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxImportance);
             this.Controls.Add(this.label5);
@@ -242,7 +239,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.label1);
-            this.Name = "FormTaskWithReport";
+            this.Name = "FormTaskWithReportManager";
             this.Text = "FormTaskWithReport";
             this.Load += new System.EventHandler(this.FormTaskWithReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -256,14 +253,11 @@
 
         private System.Windows.Forms.RichTextBox richTextBoxReport;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button buttonDiscardReport;
         private System.Windows.Forms.Button buttonAddReport;
-        private System.Windows.Forms.ComboBox comboBoxStatus;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxImportance;
         private System.Windows.Forms.Label label5;
@@ -273,5 +267,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBoxStatus;
     }
 }

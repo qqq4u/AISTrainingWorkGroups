@@ -76,7 +76,7 @@ namespace AISWorkGroup.View.Employee_s_Forms
                 GlobalVariables.selectedTaskID = reader.GetInt32("id");
                 reader.Close();
                 this.Visible = false;
-                Form form = new FormTaskWithReport();
+                Form form = new AISWorkGroup.View.Employee_s_Forms.TaskWithReport();
                 form.ShowDialog();
                 dataGridViewTasksForGroup.Rows.Clear();
 

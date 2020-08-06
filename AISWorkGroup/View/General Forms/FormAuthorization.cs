@@ -48,9 +48,14 @@ namespace AISWorkGroup.View.General_Forms
                         reader.Read();
                         GlobalVariables.authorizedUserId = reader.GetInt32("id");
                         reader.Close();
+                        DBConnector.mySqlCommand.CommandText = $@"UPDATE `users` SET status = 1 WHERE id = {GlobalVariables.authorizedUserId}";
+                        DBConnector.mySqlCommand.ExecuteNonQuery();
                         Form managerForm = new FormManagerMain();
                         this.Visible = false;
                         managerForm.ShowDialog();
+                        DBConnector.mySqlCommand.CommandText = $@"UPDATE `users` SET status = 0 WHERE id = {GlobalVariables.authorizedUserId}";
+                        DBConnector.mySqlCommand.ExecuteNonQuery();
+
                         this.Visible = true;
                         textBoxLogin.Clear();
                         textBoxPassword.Clear();
@@ -61,10 +66,14 @@ namespace AISWorkGroup.View.General_Forms
                         reader.Read();
                         GlobalVariables.authorizedUserId = reader.GetInt32("id");
                         reader.Close();
-                            Form employeeForm = new FormEmployeeMain();
+                        DBConnector.mySqlCommand.CommandText = $@"UPDATE `users` SET status = 1 WHERE id = {GlobalVariables.authorizedUserId}";
+                        DBConnector.mySqlCommand.ExecuteNonQuery();
+                        Form employeeForm = new FormEmployeeMain();
                             this.Visible = false;
-                            employeeForm.ShowDialog();
-                            this.Visible = true;
+                        employeeForm.ShowDialog();
+                        DBConnector.mySqlCommand.CommandText = $@"UPDATE `users` SET status = 0 WHERE id = {GlobalVariables.authorizedUserId}";
+                        DBConnector.mySqlCommand.ExecuteNonQuery();
+                        this.Visible = true;
                         textBoxLogin.Clear();
                         textBoxPassword.Clear();
                         comboBoxRole.Text = string.Empty;

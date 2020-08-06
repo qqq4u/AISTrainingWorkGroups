@@ -35,13 +35,14 @@ D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\bin\Debug\System.Numeri
 D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.Employee_s_Forms.FormEditingReport.resources
 D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.Employee_s_Forms.FormGroupInfo.resources
-D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.General_Forms.TaskWithReport.resources
 D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.Manager_s_Forms.FormAddingNewTask.resources
 D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.Manager_s_Forms.FormChangeSelectedTask.resources
 D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.Manager_s_Forms.FormChangeSelectedWorkGroup.resources
 D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.Manager_s_Forms.FormGroupInfo.resources
 D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.Manager_s_Forms.FormSelectedEmployeeInfo.resources
-D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.Manager_s_Forms.FormTaskWithReport.resources
 D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.csproj.CopyComplete
 D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.General_Forms.FormRegistration.resources
 D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.Manager_s_Forms.FormAddingNewWorkgroup.resources
+D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.Employee_s_Forms.FormAddingReport.resources
+D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.Employee_s_Forms.TaskWithReport.resources
+D:\PROGRAMMING\CRUD for WS2020\AISWorkGroup\AISWorkGroup\obj\Debug\AISWorkGroup.View.Manager_s_Forms.FormTaskWithReportManager.resources
